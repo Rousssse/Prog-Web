@@ -22,7 +22,7 @@
     </div>
     <img v-bind:src="theGame.opponents[1].opponent.image_url"/>
   </div>
-
+  
   </div>
 
 </template>

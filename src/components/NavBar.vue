@@ -5,6 +5,7 @@
         <li :class="{ active: $route.path === '/' }"><router-link to="/">PRESENTATION</router-link></li>
         <li :class="{ active: $route.path === '/page3' }"><router-link to="/page3">DAY BET</router-link></li>
         <li :class="{ active: $route.path === '/page2' }"><router-link to="/page2">LEAGUE</router-link></li>
+        <li :class="{ active: $route.path === '/page4' }"><router-link to="/page4">HISTORICAL</router-link></li>
         <li><p class="score">SCORE :</p></li>
         <li><p>0</p></li>
         <li><Vue3Lottie :animationData="coinJSON" :height="60" :width="60"/></li>

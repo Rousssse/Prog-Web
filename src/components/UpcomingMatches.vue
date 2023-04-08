@@ -52,7 +52,7 @@ export default {
                 month="0"+month;
             }
             let year = tomorrow.getFullYear();
-            this.NextMatches = data.filter((games) => games.original_scheduled_at.startsWith(year+"-"+month+"-"+day) );
+            this.NextMatches = data.filter((games) => games.original_scheduled_at.startsWith(year+"-"+month+"-"+day)  && games.opponents.length === 2 );
             console.log(year+"-"+month+"-"+day);
             console.log(this.NextMatches);
           })
@@ -63,7 +63,10 @@ export default {
     onSelectedTeamChanged(match, team) {
       console.log("onSelectedTeamChanged is called !", "team", team, "id of the match",match.id);
       this.lastSelectedTeam = team;
-      this.retrieveChoice(match);
+      if(match.opponents) {
+       this.retrieveChoice(match);
+  }
+      
     },
     retrieveChoice(match) {
       console.log("retrieveChoice is called !");
