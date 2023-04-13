@@ -73,7 +73,6 @@ nav li {
 nav a {
   color: #fff;
   text-decoration: none;
-  font-size: 25px;
   transition: 0.3s;
   padding: 10px;
   border-radius: 5px;
@@ -90,9 +89,13 @@ nav li.active a {
 nav p.score {
   color: #fff;
   text-decoration: none;
-  font-size: 25px;
   margin-right: 10px;
 }
+
+li {
+  font-size: 25px;
+}
+
 }
 
 @media only screen and (max-width: 1023px) {

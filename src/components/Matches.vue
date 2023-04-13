@@ -14,7 +14,7 @@
       <h2 class="name1">{{ theGame.opponents[0].opponent.name }}</h2>
     </div>
     <div class="mid-items">
-      <Vue3Lottie :animationData="versusJSON" :height="100" :width="100"/>
+      <Vue3Lottie class="image_vs" :animationData="versusJSON" :height="100" :width="100"/>
       <p class="league-name"> {{ theGame.league.name }}</p>
     </div>
     <div class="matches-body2" @click="onRightClick">
@@ -100,8 +100,8 @@ export default{
   }
   
   .matches img {
-  width: 15%;
-  height: 15%;
+  width: 150px;
+  height: 150px;
   object-fit: contain; 
 }
   
@@ -190,7 +190,7 @@ export default{
   }
 }
 
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1023px) {
   .div-content {
   display: flex;
   align-items: center;
@@ -216,44 +216,36 @@ export default{
     flex-grow: 1; 
     box-sizing: border-box;
     text-align: center;
-    padding-right: 150px;
+    margin-right: 5px;
   }
   
   .matches img {
-  width: 15%;
-  height: 15%;
-  object-fit: contain; 
+  width: 8vw;
+  height: auto; 
 }
   
   
   .matches-body1 h2 {
-    font-size: 24px;
+    font-size: 3vw;
     color: white;
     margin-left: 10px;
   }
   
   .matches-body1 p {
-    font-size: 30px;
+    font-size: 4vw;
     color: whitesmoke;
-    margin-top: 10px;
   }
 
   .matches-body2 h2 {
-    font-size: 24px;
+    font-size: 3vw;
     color: white;
     margin-left: 10px;
+    margin-right: 10px;
   }
   
   .matches-body2 p {
-    font-size: 30px;
+    font-size: 4vw;
     color: whitesmoke;
-    margin-top: 10px;
-  }
-
-  .matches-body2 p {
-    font-size: 30px;
-    color: whitesmoke;
-    margin-top: 10px;
   }
 
   h2:hover {
@@ -266,24 +258,33 @@ export default{
     flex-direction: row;
     align-items: center;
     position: relative;
-    font-size: 16px;
+    font-size: 2vw;
     color: whitesmoke;
-    padding: 30px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-right: 0;
+
   }
   
   .mid-items {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-left: 10px;
-}
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+  }
 
   
   .mid-items p {
-    font-size: 20px;
+    font-size: 2vw;
     color: whitesmoke;
     margin-top: 10px;
+  }
+
+  .image_vs {
+    height: 8vw;
+    width: 8vw;
   }
   
   .league-name {
@@ -292,21 +293,20 @@ export default{
 
   .winner-choice {
     color :whitesmoke;
-    background: linear-gradient(to right, rgb(133, 96, 192),rgb(183, 137, 197));
+    background: linear-gradient(to right, rgb(195, 148, 210),rgb(133, 96, 192));
     border-radius: 10px;
-    height: 160px;
-    width: 300px;
+    height: 16vw;
+    width: 16vw;
   }
   .winner-choice img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: -20px;
-    margin-top: -15px;
+    width: 5vw;
+    height: 5vw;
+    margin-bottom: -5px;
 
   }
 
   .text-win{
-    font-size: 20px;
+    font-size: 1.5vw;
   }
 
 } 
