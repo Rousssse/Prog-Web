@@ -113,6 +113,8 @@ export default {
 </script>
 
 <style>
+
+@media only screen and (min-width: 1024px){
 #app {
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -125,4 +127,21 @@ h1 {
   color: rgb(0, 0, 0);
   padding-top: 25px;
 }
+}
+@media only screen and (max-width: 1023px){
+  h1 {
+  color: rgb(0, 0, 0);
+  font-size: 3vw;
+  }
+
+  #app {
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 6vw;
+}
+}
+
 </style>

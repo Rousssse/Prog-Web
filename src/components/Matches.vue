@@ -1,15 +1,10 @@
 <template>
   <div class="div-content">
-    <div v-if="selected" class="winner-choice">
-      <p class="text-win"> Selected Team : </p>
-      <img v-bind:src="selectedTeam.image_url"/>
-      <p class="text-win">{{ selectedTeam.name }}</p>
-    </div>
   <div class="matches" :class="{ 'selected': selected }">
     <div class="event-time">
       <p> {{ theGame.scheduled_at.slice(11,16) }}</p>
     </div>
-    <img v-bind:src="theGame.opponents[0].opponent.image_url"/>
+    <img class="image_opponent0" v-bind:src="theGame.opponents[0].opponent.image_url"/>
     <div class="matches-body1" @click="onLeftClick" >
       <h2 class="name1">{{ theGame.opponents[0].opponent.name }}</h2>
     </div>
@@ -20,8 +15,14 @@
     <div class="matches-body2" @click="onRightClick">
       <h2 class="name2">{{ theGame.opponents[1].opponent.name }}</h2> 
     </div>
-    <img v-bind:src="theGame.opponents[1].opponent.image_url"/>
+    <img class="image_opponent1" v-bind:src="theGame.opponents[1].opponent.image_url"/>
+    
   </div>
+  <div v-if="selected" class="winner-choice">
+      <p class="text-win"> Selected Team : </p>
+      <img v-bind:src="selectedTeam.image_url"/>
+      <p class="text-win">{{ selectedTeam.name }}</p>
+    </div>
   
   </div>
 
@@ -96,13 +97,22 @@ export default{
     flex-grow: 1; 
     box-sizing: border-box;
     text-align: center;
-    padding-right: 150px;
+    margin-right: 5px;
   }
   
   .matches img {
-  width: 150px;
-  height: 150px;
+  width: 10vw;
+  height: 10vw;
   object-fit: contain; 
+}
+
+.image_opponent1 {
+  margin-right: 20px;
+}
+
+.image_opponent0 {
+  margin-left: -100px;
+  margin-right: -20px;
 }
   
   
@@ -172,21 +182,21 @@ export default{
 
   .winner-choice {
     color :whitesmoke;
-    background: linear-gradient(to right, rgb(133, 96, 192),rgb(183, 137, 197));
+    background: linear-gradient(to right,  rgb(195, 148, 210),rgb(133, 96, 192));
     border-radius: 10px;
-    height: 160px;
-    width: 300px;
+    height: 12vw;
+    width: 16vw;
   }
   .winner-choice img {
-    width: 80px;
-    height: 80px;
+    width: 6vw;
+    height: 6vw;
     margin-bottom: -20px;
     margin-top: -15px;
 
   }
 
   .text-win{
-    font-size: 20px;
+    font-size: 1.2vw;
   }
 }
 
@@ -221,7 +231,7 @@ export default{
   
   .matches img {
   width: 8vw;
-  height: auto; 
+
 }
   
   
