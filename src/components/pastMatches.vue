@@ -1,7 +1,7 @@
 <template>
   <div class="pastmatches">
     <div v-if="thePastGame && thePastGame.games && thePastGame.games[0] && thePastGame.games[0].winner">  
-      <p> {{thePastGame.name }} </p>
+      <h2> {{thePastGame.name }} </h2>
       <div class="match-info">
         <div class="winner-info">
           <img v-if="thePastGame.games[0].winner.id === thePastGame.opponents[0].opponent.id" v-bind:src="thePastGame.opponents[0].opponent.image_url"/>
@@ -41,7 +41,7 @@ export default{
   overflow: hidden;
   width: 80%; 
   margin: 10px auto; 
-  background: linear-gradient(to right, rgb(92, 238, 180), rgb(253, 67, 67));
+  background: linear-gradient(to right, rgb(92, 238, 180), rgb(213, 244, 121));
   box-shadow: 0px 1px 0px 2px rgb(252, 252, 252); 
 }
 

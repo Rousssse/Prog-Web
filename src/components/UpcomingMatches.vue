@@ -25,6 +25,14 @@ export default {
   },
   created: function(){
     this.getMatches();
+
+    const choices = JSON.parse(localStorage.getItem('choices'));
+    console.log(choices);
+    
+    if (choices) {
+      this.choice = choices;
+    }
+ 
   },
   data(){
     return {
@@ -60,6 +68,10 @@ export default {
             console.error(error);
           });
     },
+    // findSelectedTeam(index) {
+    //     let choice = this.choices.find((a) => a.matchId == index)
+    //     return 
+    // },
     onSelectedTeamChanged(match, team) {
       console.log("onSelectedTeamChanged is called !", "team", team, "id of the match",match.id);
       this.lastSelectedTeam = team;
@@ -89,7 +101,7 @@ export default {
 
         // save the choices in the local storage 
         localStorage.setItem("choices", JSON.stringify(this.choice));
-      }
+       }
     }
   },
   computed : {

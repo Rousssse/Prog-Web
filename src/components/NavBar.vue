@@ -8,7 +8,7 @@
         <li :class="{ active: $route.path === '/page4' }"><router-link to="/page4">HISTORICAL</router-link></li>
         <li><p class="score">SCORE :</p></li>
         <li><p>0</p></li>
-        <li><Vue3Lottie :animationData="coinJSON" :height="60" :width="60"/></li>
+        <li><Vue3Lottie class="image_coin" :animationData="coinJSON" :height="60" :width="60"/></li>
       </ul>
     </nav>
   </div>
@@ -34,7 +34,9 @@ export default {
 
 
 <style>
-.navbar {
+@media only screen and (min-width: 1024px) {
+
+  .navbar {
   background-color: transparent;
   position: fixed;
   top: 0;
@@ -43,7 +45,6 @@ export default {
   width: 100%;
   display: flex;
   align-items: center;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .navigation-bar {
@@ -51,9 +52,6 @@ export default {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  width: 90%;
-  height: 100%;
-  background-color: #282A35;
 }
 
 nav ul {
@@ -95,5 +93,72 @@ nav p.score {
   font-size: 25px;
   margin-right: 10px;
 }
+}
+
+@media only screen and (max-width: 1023px) {
+
+.navigation-bar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+nav ul {
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 0;
+padding: 0;
+padding-left: 7px;
+width: 100%;
+list-style: none;
+background-color: #282A35;
+white-space: nowrap;
+overflow-x: hidden;
+
+}
+
+nav a {
+color: #fff;
+text-decoration: none;
+transition: 0.3s;
+border-radius: 5px;
+margin: 0;
+
+}
+
+nav a:hover {
+background-color: #0449aa;
+}
+
+nav li.active a {
+background-color: #0449aa;
+}
+
+nav p.score {
+color: #fff;
+text-decoration: none;
+
+}
+
+li {
+  font-size: 3vw;
+}
+
+.image_coin {
+
+  height: 8vw;
+  width: 8vw;
+
+}
+
+}
+
 
 </style>
+
+
+
+

@@ -23,8 +23,8 @@ export default {
   display: flex;
   width: 100%;
   margin: 10px auto;
-  background-color: rgb(53, 35, 109);
-  box-shadow: 0px 5px 5px #552c61;
+  background: linear-gradient(to right, rgb(61, 15, 93), rgb(77, 63, 91));
+  box-shadow: 0px 5px 5px #db71fb;
   border-radius: 10px;
   text-align: center;
 }

@@ -70,7 +70,8 @@ export default{
   
   <style scoped >
  
- .div-content {
+ @media only screen and (min-width: 1024px) {
+  .div-content {
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -99,8 +100,128 @@ export default{
   }
   
   .matches img {
-  width: 150px;
-  height: 150px;
+  width: 15%;
+  height: 15%;
+  object-fit: contain; 
+}
+  
+  
+  .matches-body1 h2 {
+    font-size: 24px;
+    color: white;
+    margin-left: 10px;
+  }
+  
+  .matches-body1 p {
+    font-size: 30px;
+    color: whitesmoke;
+    margin-top: 10px;
+  }
+
+  .matches-body2 h2 {
+    font-size: 24px;
+    color: white;
+    margin-left: 10px;
+  }
+  
+  .matches-body2 p {
+    font-size: 30px;
+    color: whitesmoke;
+    margin-top: 10px;
+  }
+
+  .matches-body2 p {
+    font-size: 30px;
+    color: whitesmoke;
+    margin-top: 10px;
+  }
+
+  h2:hover {
+    color: #8551da;
+  }
+  
+  
+  .event-time {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    font-size: 16px;
+    color: whitesmoke;
+    padding: 30px;
+  }
+  
+  .mid-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+  
+  .mid-items p {
+    font-size: 20px;
+    color: whitesmoke;
+    margin-top: 10px;
+  }
+  
+  .league-name {
+    color: whitesmoke;
+  }
+
+  .winner-choice {
+    color :whitesmoke;
+    background: linear-gradient(to right, rgb(133, 96, 192),rgb(183, 137, 197));
+    border-radius: 10px;
+    height: 160px;
+    width: 300px;
+  }
+  .winner-choice img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: -20px;
+    margin-top: -15px;
+
+  }
+
+  .text-win{
+    font-size: 20px;
+  }
+}
+
+  @media only screen and (max-width: 1024px) {
+  .div-content {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+ }
+  
+  .matches {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 80%; 
+    margin: 10px auto; 
+    background: linear-gradient(to right, rgb(92, 170, 238), rgb(253, 67, 67));
+    box-shadow: 0px 1px 0px 2px rgb(252, 252, 252); 
+    
+  }
+  
+  .matches > * {
+    flex-basis: 33.33%; 
+    flex-grow: 1; 
+    box-sizing: border-box;
+    text-align: center;
+    padding-right: 150px;
+  }
+  
+  .matches img {
+  width: 15%;
+  height: 15%;
   object-fit: contain; 
 }
   
@@ -188,6 +309,8 @@ export default{
     font-size: 20px;
   }
 
+} 
+ 
 </style>
 
 
