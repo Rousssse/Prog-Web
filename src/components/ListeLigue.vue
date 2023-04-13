@@ -8,7 +8,7 @@
           <img src="../assets/fleche.png" class="icon">
         </div>
       </div>
-      <input class="search" type="text" v-model="searchTerm" placeholder="Rechercher une ligue" />
+      <input class="search" type="text" v-model="searchTerm" placeholder="Search" />
       <ul :class="{'show': showList}">
           <LigueCard
             size="large"
@@ -80,15 +80,17 @@ export default {
 </script>
 
   
-  <style>
+<style>
+
+@media only screen and (min-width: 1024px){
   .listeligue {
     position: relative;
     list-style: none;
     color: #ffffff;
     display: flex;
     cursor: pointer;
-    background-color: rgb(30, 25, 36);
-    width: 33%;
+    background-color: #282A35;
+    width: 36vw;
   }
   
   .image {
@@ -110,9 +112,9 @@ export default {
   }
   
   .title {
-    margin-left: 30px;
+    margin-left: 20px;
     font-family: Impact, 'Arial Narrow Bold', sans-serif;
-    font-size: 20px;
+    font-size: 1.3vw;
   }
   
   .arrow {
@@ -128,13 +130,16 @@ export default {
   }
   
   .icon {
-    width: 30px;
-    height: 30px;
+    width: 2vw;
+    height: 2vw;
   }
 
   .search {
-    margin-left: 70px;
+    margin-left: 40px;
     background-color: rgb(30, 25, 36);
+    width: 8vw;
+    height: auto;
+    font-size: 1.2vw;
   
   }
   
@@ -158,6 +163,92 @@ export default {
     color: #fff;
     font-family:Impact, 'Arial Narrow Bold', sans-serif;
     cursor: pointer;
+  }
+}
+
+  @media only screen and (max-width: 1023px){
+    .listeligue {
+    position: relative;
+    list-style: none;
+    color: #ffffff;
+    display: flex;
+    cursor: pointer;
+    background-color: #282A35;
+    width: 40vw;
+  }
+  
+  .image {
+    height: 60px;
+    width: 60px;
+    margin-right: 20px;
+    margin-left: 40px;
+    margin-top: 25px;
+  }
+
+  .image-riot {
+    height: 6vw;
+    width: 6vw;
+    margin-left: -15px;
+  }
+  
+  .name {
+    display: flex;
+    align-items: center;
+  }
+  
+  .title {
+    margin-left: 10px;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.5vw;
+  }
+  
+  .arrow {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .arrow.open {
+    transform: translateY(-50%) rotate(180deg);
+  }
+  
+  .icon {
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+
+  .search {
+    margin-left: 3vw;
+    background-color: rgb(30, 25, 36);
+    width: 8vw;
+    height: auto;
+    font-size: 2vw;
+  
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+  }
+  
+  ul.show {
+    display: block;
+  }
+  
+  ul li {
+    padding: 5px 10px;
+    color: #fff;
+    font-family:Impact, 'Arial Narrow Bold', sans-serif;
+    cursor: pointer;
+  }
   }
   </style>
   
