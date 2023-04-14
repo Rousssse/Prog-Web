@@ -107,7 +107,8 @@ export default{
 }
 
 .image_opponent1 {
-  margin-right: 20px;
+  margin-right: 50px;
+  margin-left: 20px;
 }
 
 .image_opponent0 {
@@ -296,6 +297,11 @@ export default{
     height: 8vw;
     width: 8vw;
   }
+
+  .image_opponent1 {
+  margin-right: 50px;
+  margin-left: 20px;
+}
   
   .league-name {
     color: whitesmoke;
