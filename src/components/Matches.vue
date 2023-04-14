@@ -311,12 +311,12 @@ export default{
     color :whitesmoke;
     background: linear-gradient(to right, rgb(195, 148, 210),rgb(133, 96, 192));
     border-radius: 10px;
-    height: 16vw;
-    width: 16vw;
+    height: 14vw;
+    width: 14vw;
   }
   .winner-choice img {
-    width: 5vw;
-    height: 5vw;
+    width: 4vw;
+    height: 4vw;
     margin-bottom: -5px;
 
   }
