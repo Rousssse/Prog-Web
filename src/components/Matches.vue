@@ -299,8 +299,8 @@ export default{
   }
 
   .image_opponent1 {
-  margin-right: 50px;
-  margin-left: 20px;
+  margin-right: 4vw;
+  margin-left: 1vw;
 }
   
   .league-name {
