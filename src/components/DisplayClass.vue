@@ -1,6 +1,6 @@
 <template>
   <div class="classement">
-    <h2 class="title"> TEAMS </h2>
+    <div class="title_team"> TEAMS </div>
     <div>
       <div>
         <TeamCardClassement
@@ -62,28 +62,56 @@ export default {
 </script>
   
 <style>
-.classement {
-  width: 66%;
+
+@media only screen and (max-width: 1023px){
+  .classement {
+  width: 58vw;
   float: right;
-  margin-right: 0%;
-  background-color: rgb(28, 21, 37);
-  color: rgb(255, 249, 242);
+  background-color: #282A35;
+  color: #fff;
 }
 
 .classement h2 {
-  font-size: 2em;
-  font-weight: bold;
+  font-size: 2.5vw;
   margin-bottom: 0.5em;
-  color: white;
-}
-
-.classement ol {
-  list-style-type: decimal-leading-zero;
+  color: #fff;
 }
 
 .classement li {
   margin-bottom: 0.5em;
 }
 
+.title_team{
+    margin-left: 20px;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-size: 3vw;
+}
+}
+
+@media only screen and (min-width: 1024px){
+  .classement {
+  width: 63vw;
+  float: right;
+  margin-right: 0%;
+  background-color: #282A35;
+  color: #fff;
+}
+
+.classement h2 {
+  font-size: 2vw;
+  margin-bottom: 0.5em;
+  color: #fff;
+}
+
+.classement li {
+  margin-bottom: 0.5em;
+}
+
+.title_team{
+    margin-left: 20px;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-size: 3vw;
+}
+}
 
 </style>

@@ -19,6 +19,7 @@ export default {
 </script>
 
 <style>
+@media only screen and (min-width: 1024px){
 .teamcard {
   display: flex;
   width: 100%;
@@ -30,10 +31,10 @@ export default {
 }
 
 .teamcard img {
-  width: 150px; /* réduire la taille de l'image */
-  height: 150px; /* ajuster la hauteur proportionnellement */
-  margin-right: 200px; /* espace entre l'image et le texte */
-  margin-left: 20px;
+  width: 10vw;
+  height: 10vw; 
+  margin-right: 12vw; /* espace entre l'image et le texte */
+  margin-left: 4vw;
 }
 
 .teambody {
@@ -55,5 +56,46 @@ export default {
   align-items: center;
   margin: 0; /* enlever les marges par défaut */
 
+}
+}
+
+@media only screen and (max-width: 1023px){
+.teamcard {
+  display: flex;
+  width: 58vw;
+  margin: 10px auto;
+  background: linear-gradient(to right, rgb(63, 14, 97), rgb(77, 63, 91));
+  box-shadow: 0px 4px 4px #b082be;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.teamcard img {
+  width: 10vw; 
+  height: 10vw;
+  margin-right: 10vw; /* espace entre l'image et le texte */
+  margin-left: 5vw;
+}
+
+.teambody {
+  display: flex;
+  flex-direction: column; /* mettre le texte en colonne */
+  justify-content: center; /* centrage vertical */
+}
+
+.teambody h2 {
+  font-size: 36px; /* réduire la taille de la police */
+  color: #FFF;
+  margin-bottom: 10px;
+  align-items: center; /* espace entre le nom et le score */
+}
+
+.teambody p {
+  font-size: 24px; /* réduire la taille de la police */
+  color: whitesmoke;
+  align-items: center;
+  margin: 0; /* enlever les marges par défaut */
+
+}
 }
 </style>
