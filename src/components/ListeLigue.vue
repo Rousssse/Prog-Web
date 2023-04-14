@@ -92,6 +92,11 @@ export default {
     background-color: #282A35;
     width: 36vw;
   }
+
+  .ligue {
+    display: flex;
+    align-items: center;
+  }
   
   .image {
     height: 60px;
@@ -176,6 +181,11 @@ export default {
     background-color: #282A35;
     width: 40vw;
   }
+
+  .ligue {
+    display: flex;
+    align-items: center;
+  }
   
   .image {
     height: 60px;
@@ -188,7 +198,6 @@ export default {
   .image-riot {
     height: 6vw;
     width: 6vw;
-    margin-left: -15px;
   }
   
   .name {
@@ -199,7 +208,7 @@ export default {
   .title {
     margin-left: 10px;
     font-family: Impact, 'Arial Narrow Bold', sans-serif;
-    font-size: 1.5vw;
+    font-size: 1.8vw;
   }
   
   .arrow {
@@ -224,7 +233,7 @@ export default {
     background-color: rgb(30, 25, 36);
     width: 8vw;
     height: auto;
-    font-size: 2vw;
+    font-size: 1.8vw;
   
   }
   

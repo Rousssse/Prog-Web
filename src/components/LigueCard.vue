@@ -4,7 +4,7 @@
             <img class="image" :src="image" :alt="ligue">
         </div>
         <div class="ligue-elt">
-        <h1 class="ligue"> {{ ligue }}</h1>
+        <h1> {{ ligue }}</h1>
         </div>
       
     </div>
@@ -20,7 +20,9 @@
   }
   </script>
   
-  <style>
+  <style scoped>
+
+@media only screen and (min-width: 1024px){
     .ligue-card {
     position: relative;
     list-style: none;
@@ -28,22 +30,72 @@
     display: flex;
     cursor: pointer;
     background: #6b83a4;
-    box-shadow: inset 20px 20px 27px #556782,
-            inset -20px -20px 27px #819fc6;;
+    box-shadow: inset 20px 20px 27px #636c7a,
+            inset -20px -20px 27px #97aac2;
   }
     .image {
-    height: 60px;
-    width: 60px;
-    margin-right: 30px;
-    margin-left: 20px;
+    height: 5vw;
+    width: 5vw;
+    margin-left: 2vw;
+    margin-right: 4vw;
   }
 
-  .ligue {
-    display: flex;
-    align-items: center;
-    margin-left: 25px;
+  .ligue-elt h1 {
+    font-size: 1.5vw;
+    position: relative;
+    color: #282A35;
+    margin-top: -1vw;
   }
-  
+}
+
+  @media only screen and (max-width: 767px){
+    .ligue-card {
+    list-style: none;
+    color: #ffffff;
+    display: flex;
+    cursor: pointer;
+    background: #6b83a4;
+    box-shadow: inset 20px 20px 27px #636c7a,
+            inset -20px -20px 27px #97aac2;
+  }
+    .image {
+    height: 7vw;
+    width: 7vw;
+    margin-left: 3vw;
+  }
+
+  .ligue-elt h1 {
+    font-size: 2.5vw;
+    color: #282A35;
+    margin-top: -4vw;
+  }
+
+  }
+
+  @media only screen and (max-width: 1023px) and (min-width: 768px){
+    .ligue-card {
+    list-style: none;
+    color: #ffffff;
+    display: flex;
+    cursor: pointer;
+    background: #6b83a4;
+    box-shadow: inset 20px 20px 27px #636c7a,
+            inset -20px -20px 27px #97aac2;;
+  }
+    .image {
+    height: 7vw;
+    width: 7vw;
+    margin-left: 3vw;
+  }
+
+  .ligue-elt h1 {
+    font-size: 2.5vw;
+    color: #282A35;
+    margin-top: -2vw;
+  }
+
+  }
+
   </style>
   
   
