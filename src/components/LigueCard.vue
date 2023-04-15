@@ -90,7 +90,7 @@
   }
   .selected {
     background: #607694;
-    box-shadow: inset  20px 20px 27px #3b485a,
+    box-shadow: inset  20px 10px 7px #3b485a,
                 inset -20px -20px 27px #9bbeee;
   }
 
@@ -103,8 +103,8 @@
     display: flex;
     cursor: pointer;
     background: #6b83a4;
-    box-shadow: inset 20px 20px 27px #636c7a,
-            inset -20px -20px 27px #97aac2;
+  box-shadow: inset 5px 5px 5px #9bbeee,
+              inset -5px -5px 5px #9bbeee;
   }
     .image {
     height: 7vw;
@@ -118,9 +118,9 @@
     margin-top: -2vw;
   }
   .selected {
-    background: #607694;
-    box-shadow: inset  20px 20px 27px #3b485a,
-                inset -20px -20px 27px #9bbeee;
+    background: #6b83a4;
+  box-shadow: inset 10px 10px 17px #3b485a,
+            inset -10px -10px 17px #3b485a
   }
 
   }
