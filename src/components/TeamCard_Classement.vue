@@ -1,6 +1,6 @@
 <template>
   <div class="teamcard">
-    <img v-if="image" :src="image" :alt="team">
+    <img v-if="image" :src="image">
     <img v-else src="https://logo-marque.com/wp-content/uploads/2020/11/League-of-Legends-Embleme.png" :alt="team">
     <div class="teambody">
       <h2 class="name">{{ name }}</h2>

@@ -42,21 +42,23 @@ export default {
   },
   methods: {
     getClassement(seriesid) {
-      getTeamInLeague(seriesid)
-        .then((data) => {
-          this.teams = data.sort((a, b) => a.name.localeCompare(b.name));
-          
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    },
+      if(seriesid) {
+        getTeamInLeague(seriesid)
+          .then((data) => {
+            this.teams = data.sort((a, b) => a.name.localeCompare(b.name));
+            
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+    }
   },
+},
   computed: {
     filteredTeams() {
       return this.teams;
     }
-  }
+  },
   
 };
 </script>

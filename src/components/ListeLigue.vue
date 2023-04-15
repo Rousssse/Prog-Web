@@ -17,6 +17,7 @@
             :key="ligue.id"
             :ligue="ligue.name"
             :image="ligue.image_url">
+            @click="selectLeague(ligue)" :class="{'selected': ligue === selectedLeague }"
           </LigueCard>
       </ul>
     </div>
@@ -37,6 +38,7 @@ export default {
       showList: false,
       ligues: [],
       searchTerm: '',
+      selectedLeague:null,
 
       popularLeagues: ['LEC','LFL','LPLOL'],
       
@@ -52,6 +54,10 @@ export default {
         ligue.name.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
     },
+    selectLeague(ligue) {
+      this.selectedLeague = ligue;
+      console.log(this.selectedLeague);
+    }
  
 
   },
@@ -161,6 +167,11 @@ export default {
   
   ul.show {
     display: block;
+  }
+
+  ul.selected{
+    background-color: #444;
+    color: #fff;
   }
   
   ul li {
