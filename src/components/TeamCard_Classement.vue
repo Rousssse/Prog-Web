@@ -24,7 +24,7 @@ export default {
   display: flex;
   width: 100%;
   margin: 10px auto;
-  background: linear-gradient(to right, rgb(61, 15, 93), rgb(77, 63, 91));
+  background: linear-gradient(to right,rgb(112, 88, 136),rgb(61, 15, 93));
   box-shadow: 0px 5px 5px #db71fb;
   border-radius: 10px;
   text-align: center;
@@ -64,7 +64,7 @@ export default {
   display: flex;
   width: 58vw;
   margin: 10px auto;
-  background: linear-gradient(to right, rgb(63, 14, 97), rgb(77, 63, 91));
+  background: linear-gradient(to right,rgb(112, 88, 136),rgb(84, 28, 125));
   box-shadow: 0px 4px 4px #b082be;
   border-radius: 10px;
   text-align: center;
