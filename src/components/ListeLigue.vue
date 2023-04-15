@@ -12,12 +12,14 @@
       <ul :class="{'show': showList}">
           <LigueCard
             size="large"
-            v-for="ligue in filteredLigues"
+            v-for="(ligue,index) in filteredLigues"
             @click="$emit('clique-sur-div',ligue.series[ligue.series.length-1].id)"
             :key="ligue.id"
             :ligue="ligue.name"
-            :image="ligue.image_url">
-            @click="selectLeague(ligue)" :class="{'selected': ligue === selectedLeague }"
+            :image="ligue.image_url"
+            :index="index"
+            :currentIndex="currentIndex"
+        @update-current-index="currentIndex = $event">
           </LigueCard>
       </ul>
     </div>
@@ -38,9 +40,9 @@ export default {
       showList: false,
       ligues: [],
       searchTerm: '',
-      selectedLeague:null,
 
       popularLeagues: ['LEC','LFL','LPLOL'],
+      currentIndex : -1,
       
       
     };
@@ -54,10 +56,6 @@ export default {
         ligue.name.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
     },
-    selectLeague(ligue) {
-      this.selectedLeague = ligue;
-      console.log(this.selectedLeague);
-    }
  
 
   },
@@ -167,11 +165,6 @@ export default {
   
   ul.show {
     display: block;
-  }
-
-  ul.selected{
-    background-color: #444;
-    color: #fff;
   }
   
   ul li {

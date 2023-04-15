@@ -1,5 +1,5 @@
 <template>
-    <div class="ligue-card" v-if="image">
+    <div class="ligue-card" v-if="image" :class="{ selected: index === currentIndex }" @click="handleClick">
         <div>
             <img class="image" :src="image" :alt="ligue">
         </div>
@@ -15,8 +15,21 @@
     name : 'LigueCard',
     props : {
       ligue : {type : String, required: true},
-      image : {type: String, default: "https://gamingnewz.fr/wp-content/uploads/2020/04/Logo-lfl.png"}
-    } 
+      image : {type: String, default: "https://gamingnewz.fr/wp-content/uploads/2020/04/Logo-lfl.png"},
+      index: { type: Number, required: true },
+      currentIndex: { type: Number, required: true },
+    },
+
+    methods: {
+      handleClick() {
+        this.$emit("update-current-index", this.index);
+      }
+    },
+    computed: {
+    isSelected() {
+      return typeof this.currentIndex !== 'undefined' && this.index === this.currentIndex;
+    }
+  }
   }
   </script>
   
@@ -46,6 +59,12 @@
     color: #282A35;
     margin-top: -1vw;
   }
+
+  .selected {
+    background: #607694;
+    box-shadow: inset  20px 20px 27px #3b485a,
+                inset -20px -20px 27px #9bbeee;
+  }
 }
 
   @media only screen and (max-width: 767px){
@@ -69,6 +88,11 @@
     color: #282A35;
     margin-top: -4vw;
   }
+  .selected {
+    background: #607694;
+    box-shadow: inset  20px 20px 27px #3b485a,
+                inset -20px -20px 27px #9bbeee;
+  }
 
   }
 
@@ -80,7 +104,7 @@
     cursor: pointer;
     background: #6b83a4;
     box-shadow: inset 20px 20px 27px #636c7a,
-            inset -20px -20px 27px #97aac2;;
+            inset -20px -20px 27px #97aac2;
   }
     .image {
     height: 7vw;
@@ -92,6 +116,11 @@
     font-size: 2.5vw;
     color: #282A35;
     margin-top: -2vw;
+  }
+  .selected {
+    background: #607694;
+    box-shadow: inset  20px 20px 27px #3b485a,
+                inset -20px -20px 27px #9bbeee;
   }
 
   }
