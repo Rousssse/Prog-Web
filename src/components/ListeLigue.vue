@@ -143,14 +143,26 @@ export default {
     height: 2vw;
   }
 
-  .search {
-    margin-left: 40px;
-    background-color: rgb(30, 25, 36);
-    width: 8vw;
-    height: auto;
-    font-size: 1.2vw;
-  
-  }
+  input {
+  font-size: 1vw;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 .4vw rgba(194, 194, 194, 0.5), 0 0 0 .15vw transparent;
+  border-radius: 0.4vw;
+  border: none;
+  outline: none;
+  padding: 0.4vw;
+  max-width: 10vw;
+  margin-left: 3vw;
+  transition: .4s;
+}
+
+input:hover {
+  box-shadow: 0 0 0 .15vw rgba(135, 207, 235, 0.186);
+}
+
+input:focus {
+  box-shadow: 0 0 0 .15vw rgb(158, 72, 184);
+}
   
   ul {
     list-style: none;
@@ -232,14 +244,27 @@ export default {
     height: 2.5vw;
   }
 
-  .search {
-    margin-left: 3vw;
-    background-color: rgb(30, 25, 36);
-    width: 8vw;
-    height: auto;
-    font-size: 1.8vw;
   
-  }
+  input {
+  font-size: 1.5vw;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 .4vw rgba(194, 194, 194, 0.5), 0 0 0 .15vw transparent;
+  border-radius: 0.4vw;
+  border: none;
+  outline: none;
+  padding: 0.4vw;
+  max-width: 10vw;
+  margin-left: 3vw;
+  transition: .4s;
+}
+
+input:hover {
+  box-shadow: 0 0 0 .15vw rgba(135, 207, 235, 0.186);
+}
+
+input:focus {
+  box-shadow: 0 0 0 .15vw rgb(158, 72, 184);
+}
   
   ul {
     list-style: none;
