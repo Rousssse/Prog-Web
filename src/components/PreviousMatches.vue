@@ -44,7 +44,7 @@ export default {
                 month = "0" + month;
             }
             let year = yesterday.getFullYear();
-            this.PastMatches = data.filter((games) => games.begin_at.startsWith(year + "-" + month + "-" + day));
+            this.PastMatches = data.filter((games) => games.begin_at && games.begin_at.startsWith(year + "-" + month + "-" + day));
             console.log(year + "-" + month + "-" + day);
             console.log(this.PastMatches);
           })
