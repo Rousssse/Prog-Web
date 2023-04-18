@@ -2,20 +2,20 @@
     <div class="classem">
       <h3>Find the teams of the different leagues !</h3>
       <ListeLigue @clique-sur-div="afficherclassement"/>
-      <DisplayClass :seriesid="LigueAffichage" ref="DisplayClass"/>
+      <DisplayTeam :seriesid="LigueAffichage" ref="DisplayTeam"/>
     </div>
     
   </template>
   
   <script>
   import ListeLigue from './ListeLigue.vue'
-  import DisplayClass from './DisplayClass.vue';
+  import DisplayTeam from './DisplayTeam.vue';
   export default {
     name: 'ClassementP',
   
     components: {
       ListeLigue,
-      DisplayClass
+      DisplayTeam
   },
   data() {
     return {
@@ -28,7 +28,7 @@
     afficherclassement(name){
       
       this.LigueAffichage = name;
-      this.$refs.DisplayClass.getClassement(this.LigueAffichage);
+      this.$refs.DisplayTeam.getClassement(this.LigueAffichage);
     },
     }
 }

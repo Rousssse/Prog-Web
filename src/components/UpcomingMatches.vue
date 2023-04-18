@@ -22,7 +22,8 @@ export default {
   name: 'UpcomingMatches',
   components: {
     MatchesX,
-  },
+
+},
   created: function(){
     this.getMatches();
 
@@ -68,10 +69,8 @@ export default {
             console.error(error);
           });
     },
-    // findSelectedTeam(index) {
-    //     let choice = this.choices.find((a) => a.matchId == index)
-    //     return 
-    // },
+
+    
     onSelectedTeamChanged(match, team) {
       console.log("onSelectedTeamChanged is called !", "team", team, "id of the match",match.id);
       this.lastSelectedTeam = team;

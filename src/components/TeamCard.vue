@@ -1,21 +1,35 @@
 <template>
-  <div class="teamcard">
+  <div class="teamcard"  >
     <img v-if="image" :src="image">
     <img v-else src="https://logo-marque.com/wp-content/uploads/2020/11/League-of-Legends-Embleme.png" :alt="team">
     <div class="teambody">
-      <h2 class="name">{{ name }}</h2>
+      <h2 class="name"  @click="onClick">{{ name }}</h2>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'TeamCard_Classement',
+  name: 'TeamCard',
   props: {
     name: { type: String, required: true },
-    image: { type: String, default: "https://logo-marque.com/wp-content/uploads/2020/11/League-of-Legends-Embleme.png" }
-  } 
-}
+    image: { type: String, default: "https://logo-marque.com/wp-content/uploads/2020/11/League-of-Legends-Embleme.png" },
+    team: {type: Object,required: true },
+    teamId: {type: Number, required: true }
+  },
+  emits:["selected-team"],
+  data() {
+    return {
+      players: [],
+    };
+  },
+  methods: {
+  onClick() {
+    console.log('Click on the name');
+    this.$emit('selected-team', this.teamId);
+  },
+},
+};
 </script>
 
 <style>
