@@ -172,6 +172,7 @@
 .modal {
   display: flex;
   position: fixed;
+  margin-top: 3vw;
   z-index: 1;
   left: 0;
   top: 0;
@@ -199,7 +200,7 @@
 .close {
   color: #aaa;
   align-self: flex-end;
-  font-size: 28px;
+  font-size: 4vw;
   font-weight: bold;
 }
 
@@ -239,29 +240,27 @@
   align-items: center;
   text-align: center;
   width: 100%;
-  font-size: 40px;
+  font-size: 3vw;
 }
 
 .players-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
   width: 100%;
-  margin-top: 10px;
+  gap: 3vw;
 }
 
 .player-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  width: 200px;
+  width: 15vw;
 }
 
 .player-image {
-  width: 150px;
-  height: 150px;
+  width: 15vw;
+  height: 15vw;
   overflow: hidden;
   border-radius: 50%;
 }
@@ -273,7 +272,7 @@
 }
 
 .player-name {
-  font-size: 1.2rem;
+  font-size: 2vw;
   margin: 0;
   text-align: center;
 }
@@ -281,6 +280,7 @@
 .player-info {
   margin: 0;
   text-align: center;
+  font-size: 2vw;
 }
 }
 
