@@ -33,6 +33,8 @@ export default {
     if (choices) {
       this.choice = choices;
     }
+
+    this.removeOldChoices();
  
   },
   data(){
@@ -86,7 +88,7 @@ export default {
       const index = this.choice.findIndex(c => c.matchId === match.id);
 
       if (this.lastSelectedTeam) {
-        const newChoice = { matchId: match.id, selectedTeamName: this.lastSelectedTeam };
+        const newChoice = { matchId: match.id, selectedTeamName: this.lastSelectedTeam, dateAdded: new Date() };
         if (index === -1) {
           // if the team of the match has never been chosen, add a new data in the table 
           this.choice.push(newChoice);
@@ -101,6 +103,16 @@ export default {
         // save the choices in the local storage 
         localStorage.setItem("choices", JSON.stringify(this.choice));
        }
+    },
+    removeOldChoices(){
+      console.log("removeOldChoices is called ! ");
+      const now = new Date();
+      const cutoff = new Date(now - 3* 24 * 60 * 60 * 1000);
+      this.choice = this.choice.filter(c => {
+        const dateAdded = new Date(c.dateAdded);
+        return dateAdded >= cutoff;
+      });
+      localStorage.setItem("choices",JSON.stringify(this.choice));
     }
   },
   computed : {
