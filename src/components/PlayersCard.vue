@@ -2,18 +2,24 @@
   <div v-if="showModal && selectedTeamId" class="modal" @click.self="closeModal">
     <div class="modal-content">
       <span class="close" @click="closeModal">&times;</span>
-      <div class="team-card">
-        <p>{{teamname}}</p>
+      <div class="team-header">
+        <p>{{ teamname }}</p>
       </div>
-      <div v-for="(player, index) in players" :key="index" class="players-list">
-        <p class="player-name">{{ player.first_name }} {{ player.last_name }}</p>
-        <div class="player-image">
-          <img v-if="player.image_url" :src="player.image_url">
-          <img v-else src="https://logo-marque.com/wp-content/uploads/2020/11/League-of-Legends-Embleme.png">
+      <div class="players-list">
+        <div v-for="(player, index) in players" :key="index" class="player-card">
+          <div class="player-name">
+            <p>{{ player.first_name }} </p>
+            <p>{{ player.last_name }}</p>
+          </div>
+          <div class="player-image">
+            <img v-if="player.image_url" :src="player.image_url">
+            <img v-else src="https://st3.depositphotos.com/3581215/18899/v/600/depositphotos_188994514-stock-illustration-vector-illustration-male-silhouette-profile.jpg">
+          </div>
+          <div class="player-info">
+            <p> {{ player.name }}</p>
+            <p>{{ player.nationality }} | {{ player.role }}</p>
+          </div> 
         </div>
-        <div class="player-info">
-          <p>{{ player.nationality }} | {{ player.role }}</p>
-        </div> 
       </div>
     </div>
   </div>  
@@ -46,8 +52,125 @@
   </script>
 <style scoped>
 
+@media only screen and (max-width: 1023px){
 .modal {
-  display: block;
+  display: flex;
+  position: fixed;
+  margin-top: 3vw;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fefefe;
+}
+
+.modal-content {
+  background-color: #282A35;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 70vw;
+  border-radius: 15px;
+  overflow: auto;
+  max-height: calc(100% - 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close {
+  color: #aaa;
+  align-self: flex-end;
+  font-weight: bold;
+  font-size: 4vw;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.player-image img:hover {
+	opacity: 1;
+	-webkit-animation: flash 1.5s;
+	animation: flash 1.5s;
+}
+@-webkit-keyframes flash {
+	0% {
+		opacity: 0.4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes flash {
+	0% {
+		opacity: 0.4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+
+.team-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  font-size: 4vw;
+}
+
+.players-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2vw;
+  width: 100%;
+}
+
+.player-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20vw;
+}
+
+.player-image {
+  width: 15vw;
+  height: 15vw;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.player-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.player-name {
+  font-size: 3vw;
+  margin: 0;
+  text-align: center;
+}
+
+.player-info {
+  margin: 0;
+  font-size: 3vw;
+  text-align: center;
+}
+}
+
+@media only screen and (min-width: 1024px){
+.modal {
+  display: flex;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -55,24 +178,27 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
-  color: black;
+  color: #fefefe;
 }
 
 .modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
+  background-color: #282A35;
+  margin: auto;
+  padding: 10px;
   border: 1px solid #888;
-  width: 80%;
-  max-width: 600px;
-  border-radius: 10px;
+  width: 90%;
+  max-width: 1000px;
+  border-radius: 15px;
   overflow: auto;
   max-height: calc(100% - 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .close {
   color: #aaa;
-  float: right;
+  align-self: flex-end;
   font-size: 28px;
   font-weight: bold;
 }
@@ -83,24 +209,37 @@
   text-decoration: none;
   cursor: pointer;
 }
-.team-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+
+.player-image img:hover {
+	opacity: 1;
+	-webkit-animation: flash 1.5s;
+	animation: flash 1.5s;
 }
+@-webkit-keyframes flash {
+	0% {
+		opacity: 0.4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes flash {
+	0% {
+		opacity: 0.4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 
 .team-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
   text-align: center;
-}
-
-.team-image {
-  width: 200px;
-  height: 150px;
+  width: 100%;
+  font-size: 40px;
 }
 
 .players-list {
@@ -108,6 +247,8 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  width: 100%;
+  margin-top: 10px;
 }
 
 .player-card {
@@ -115,6 +256,7 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  width: 200px;
 }
 
 .player-image {
@@ -133,10 +275,13 @@
 .player-name {
   font-size: 1.2rem;
   margin: 0;
+  text-align: center;
 }
 
 .player-info {
   margin: 0;
+  text-align: center;
 }
+}
+
 </style>
-  
