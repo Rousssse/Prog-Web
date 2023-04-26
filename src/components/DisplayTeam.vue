@@ -16,16 +16,12 @@
     </div>
     <div v-for="(player,index) in filteredPlayers" :key="index">
   <PlayersCard
-      :teamId="player.id"
-      :teamname="player.name"
-      v-for="(playerInfo, playerIndex) in player.players" :key="playerIndex"
-      :firstname="playerInfo.first_name"
-      :name="playerInfo.last_name"
-      :nationality="playerInfo.nationality"
-      :selectedTeamId = "selectedTeamId"
-      :role = "playerInfo.role"
-      :image="playerInfo.image_url">
-  </PlayersCard>
+        :teamId="player.id"
+        :teamname="player.name"
+        :players="player.players"
+        :selectedTeamId = "selectedTeamId"
+        @close="selectedTeamId = $event">
+      </PlayersCard>
 </div>
   </div>
 </template>
