@@ -26,15 +26,16 @@ export default {
 },
   created: function(){
     this.getMatches();
-
+    
     const choices = JSON.parse(localStorage.getItem('choices'));
     console.log(choices);
     
     if (choices) {
       this.choice = choices;
     }
-
     this.removeOldChoices();
+
+    
  
   },
   data(){
@@ -53,7 +54,7 @@ export default {
             console.log(data);
             let today = new Date();
             let tomorrow = new Date();
-            tomorrow.setDate(today.getDate() + 1);
+            tomorrow.setDate(today.getDate() + 1 );
             let day = tomorrow.getDate();
             if(day <10){
                 day = "0"+day;

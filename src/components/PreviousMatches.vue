@@ -20,10 +20,14 @@ export default {
   },
   created: function() {
     this.getPastMatches();
+    const choices = JSON.parse(localStorage.getItem('choices'));
+    console.log(choices);
+    this.compareChoicesWithPastMatches();
   },
   data() {
     return {
       PastMatches: [], 
+      totalScore: 0,
     };
   },
 
@@ -52,6 +56,37 @@ export default {
             console.error(error);
           });
     },
+    compareChoicesWithPastMatches() {
+    // Récupérer le tableau choices à partir de localStorage
+    const choices = JSON.parse(localStorage.getItem('choices'));
+    console.log("compareChoicesWithPastMatches is called ! ")
+
+    // Parcourir les matchs passés
+    this.PastMatches.forEach((thePastGame) => {
+      // Trouver le choix de l'utilisateur pour le match en cours
+      const userChoice = choices.find((choice) => choice.matchId === thePastGame.id);
+
+      // Si l'utilisateur a fait un choix pour le match en cours
+      if (userChoice) {
+        // Mettre à jour la propriété userChoice dans l'objet thePastGame
+        thePastGame.userChoice = userChoice.choice;
+
+        // Vérifier si le choix de l'utilisateur est correct
+        if (thePastGame.games[0].winner && thePastGame.games[0].winner.id === userChoice.choiceId) {
+          // Ajouter 3 points à la propriété userGain dans l'objet thePastGame
+          thePastGame.userGain += 3;
+          this.totalScore +=3;
+        } else {
+          // Enlever 5 points à la propriété userGain dans l'objet thePastGame
+          thePastGame.userGain -= 5;
+          this.totalScore -=5;
+        }
+      }
+    });
+    this.$emit('score-updated', this.totalScore);
+  },
+
+  
   },
 
   computed: {
