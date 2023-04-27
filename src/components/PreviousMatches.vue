@@ -20,8 +20,6 @@ export default {
   },
   created: function() {
     this.getPastMatches();
-    const choices = JSON.parse(localStorage.getItem('choices'));
-    console.log(choices);
     this.compareChoicesWithPastMatches();
   },
   data() {
@@ -35,10 +33,10 @@ export default {
     getPastMatches() {
       getPreviousMatches()
           .then((data) => {
-            console.log(data);
+            // console.log(data);
             let today = new Date();
             let yesterday = new Date();
-            yesterday.setDate(today.getDate() - 1);
+            yesterday.setDate(today.getDate() );
             let day = yesterday.getDate();
             if (day < 10) {
                 day = "0" + day;
@@ -51,6 +49,7 @@ export default {
             this.PastMatches = data.filter((games) => games.begin_at && games.begin_at.startsWith(year + "-" + month + "-" + day));
             console.log(year + "-" + month + "-" + day);
             console.log(this.PastMatches);
+            this.compareChoicesWithPastMatches();
           })
           .catch((error) => {
             console.error(error);
@@ -59,31 +58,38 @@ export default {
     compareChoicesWithPastMatches() {
     // Récupérer le tableau choices à partir de localStorage
     const choices = JSON.parse(localStorage.getItem('choices'));
+    console.log("le fameux tableau :", choices);
     console.log("compareChoicesWithPastMatches is called ! ")
 
-    // Parcourir les matchs passés
-    this.PastMatches.forEach((thePastGame) => {
-      // Trouver le choix de l'utilisateur pour le match en cours
-      const userChoice = choices.find((choice) => choice.matchId === thePastGame.id);
-
-      // Si l'utilisateur a fait un choix pour le match en cours
-      if (userChoice) {
-        // Mettre à jour la propriété userChoice dans l'objet thePastGame
-        thePastGame.userChoice = userChoice.choice;
-
+      // Parcourir les matchs passés
+      const previousMatches = this.PastMatches;
+      console.log("je suis le tableau des matchs",previousMatches);
+      previousMatches.forEach((thePastGame) => {
+        console.log("normal");
+      // Parcourir les choix de l'utilisateur
+      choices.forEach((choice) => {
+      console.log("jiuhiuiuiyhui");
+      // Vérifier si l'id du choix est le même que celui d'un match passé
+      if (choice.matchId === thePastGame.id) {
+        thePastGame.userChoice = choice.selectedTeamName;
+        console.log("je suis passée par ici !!");
         // Vérifier si le choix de l'utilisateur est correct
-        if (thePastGame.games[0].winner && thePastGame.games[0].winner.id === userChoice.choiceId) {
-          // Ajouter 3 points à la propriété userGain dans l'objet thePastGame
-          thePastGame.userGain += 3;
-          this.totalScore +=3;
+        if (choice.selectedTeamName === thePastGame.games[0].winner.name) {
+          // Ajouter 3 points à l'utilisateur
+          console.log("big brain");
+          thePastGame.userGain = 3;
+          this.totalScore += 3;
         } else {
-          // Enlever 5 points à la propriété userGain dans l'objet thePastGame
-          thePastGame.userGain -= 5;
-          this.totalScore -=5;
+          // Enlever 5 points à l'utilisateur
+          console.log("big loser");
+          thePastGame.userGain = -5;
+          this.totalScore -= 5;
         }
       }
     });
-    this.$emit('score-updated', this.totalScore);
+  });
+  console.log("this.totalScore :", this.totalScore);
+  this.$emit('score-updated', this.totalScore);
   },
 
   

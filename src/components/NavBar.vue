@@ -27,11 +27,12 @@ export default {
   data (){
     return {
       coinJSON,
-      totalScore: 0,
+      totalScore : 0,
     }
   },
   methods: {
     updateScore(score) {
+      console.log("oui je sui slà");
       this.totalScore = score;
     },
   },
