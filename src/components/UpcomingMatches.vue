@@ -26,6 +26,7 @@ export default {
 },
   created: function(){
     this.getMatches();
+    console.log("juste apres c'est cassé");
     
     const choices = JSON.parse(localStorage.getItem('choices'));
     console.log(choices);
@@ -33,7 +34,7 @@ export default {
     if (choices) {
       this.choice = choices;
     }
-    this.removeOldChoices();
+    // this.removeOldChoices();
 
     
  

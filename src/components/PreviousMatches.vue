@@ -89,7 +89,6 @@ export default {
     });
   });
   console.log("this.totalScore :", this.totalScore);
-  this.$emit('score-updated', this.totalScore);
   },
 
   
