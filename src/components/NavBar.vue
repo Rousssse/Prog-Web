@@ -2,10 +2,9 @@
   <div class="navbar" v-on:score-updated="updateScore">
     <nav class="navigation-bar">
       <ul>
-        <li :class="{ active: $route.path === '/' }"><router-link to="/">PRESENTATION</router-link></li>
-        <li :class="{ active: $route.path === '/page3' }"><router-link to="/page3">DAY BET</router-link></li>
+        <li :class="{ active: $route.path === '/' }"><router-link to="/">DAY BET</router-link></li>
         <li :class="{ active: $route.path === '/page2' }"><router-link to="/page2">LEAGUE</router-link></li>
-        <li :class="{ active: $route.path === '/page4' }"><router-link to="/page4">HISTORICAL</router-link></li>
+        <li :class="{ active: $route.path === '/page3' }"><router-link to="/page3">HISTORICAL</router-link></li>
         <li><p class="score">SCORE :</p></li>
         <li><p>{{ totalScore }}</p></li>
         <li><Vue3Lottie class="image_coin" :animationData="coinJSON" :height="60" :width="60"/></li>

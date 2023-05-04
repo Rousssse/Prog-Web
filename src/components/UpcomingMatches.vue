@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>Upcoming games !</h1>
+    <InformationVue></InformationVue>
     <div class="match">
       <MatchesX
         v-for="(match, index) in filteredMatches.slice(0, maxItemsPerPage)"
@@ -15,6 +16,7 @@
   </div>
 </template>
 <script>
+import InformationVue from './InformationData.vue';
 import MatchesX from './Matches.vue'
 import { getNextMatches } from '@/services/api/E-SportAPI.js'
 
@@ -22,7 +24,7 @@ export default {
   name: 'UpcomingMatches',
   components: {
     MatchesX,
-
+    InformationVue,
 },
   created: function(){
     this.getMatches();

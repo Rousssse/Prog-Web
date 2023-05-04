@@ -2,16 +2,14 @@ import { createApp } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import App from './App.vue'
 import Vue3Lottie from 'vue3-lottie'
-import TeamsGallery from './TeamsGallery.vue'
-import Pari from './components/Classement.vue'
-import Matches from './components/UpcomingMatches.vue'
+import ListLeague from './components/Classement.vue'
+import UpMatches from './components/UpcomingMatches.vue'
 import PreviousMatches from './components/PreviousMatches.vue'
 
 const routes = [
-  { path: '/', component: TeamsGallery },
-  { path: '/page2', component: Pari },
-  { path : '/page3', component: Matches},
-  { path : '/page4', component : PreviousMatches }
+  { path : '/', component: UpMatches},
+  { path: '/page2', component: ListLeague },
+  { path : '/page3', component : PreviousMatches }
 ]
 
 const router = createRouter({
