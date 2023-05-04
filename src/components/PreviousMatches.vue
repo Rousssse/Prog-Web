@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>Find here the results of yesterday's games</h1>
+    <InformationVue></InformationVue>
     <div class="past-match" v-for="(match, index) in filteredPastMatches" :key="index">
       <PastMatches 
       :thePastGame="match" />
@@ -12,11 +13,13 @@
 <script>
 import PastMatches from './pastMatches.vue'
 import { getPreviousMatches } from '@/services/api/E-SportAPI.js'
+import InformationVue from './InformationData.vue'
 
 export default {
   name: 'PreviousMatches',
   components: {
     PastMatches,
+    InformationVue,
   },
   created: function() {
     this.getPastMatches();

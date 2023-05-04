@@ -160,6 +160,7 @@ export default{
     font-size: 16px;
     color: whitesmoke;
     padding: 30px;
+    z-index: 1;
   }
   
   .mid-items {
@@ -168,6 +169,7 @@ export default{
   justify-content: center;
   align-items: center;
   margin-left: 10px;
+  z-index: 0;
 }
 
   
@@ -274,6 +276,7 @@ export default{
     padding-left: 10px;
     padding-top: 5px;
     padding-right: 0;
+    z-index: 1;
 
   }
   
@@ -284,6 +287,7 @@ export default{
     justify-content: center;
     align-items: center;
     margin-left: 10px;
+    z-index: 0;
   }
 
   

@@ -1,6 +1,7 @@
 <template>
     <div class="classem">
       <h3>Find the teams of the different leagues !</h3>
+      <InformationVue></InformationVue>
       <ListeLigue @clique-sur-div="afficherclassement"/>
       <DisplayTeam :seriesid="LigueAffichage" ref="DisplayTeam"/>
     </div>
@@ -9,13 +10,15 @@
   
   <script>
   import ListeLigue from './ListeLigue.vue'
-  import DisplayTeam from './DisplayTeam.vue';
+  import DisplayTeam from './DisplayTeam.vue'
+  import InformationVue from './InformationData.vue'
   export default {
     name: 'ClassementP',
   
     components: {
       ListeLigue,
-      DisplayTeam
+      DisplayTeam,
+      InformationVue,
   },
   data() {
     return {

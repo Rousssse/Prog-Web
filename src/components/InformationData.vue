@@ -22,7 +22,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .info-icon-container {
   position: fixed;
   right : 20px;
@@ -44,17 +44,26 @@ export default {
 }
 
 .popup {
+  display: flex;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  padding-top: 20px;
+  z-index: 2;
+  left: 40px;
+  top: 50px;
+  height: 30%;
   background-color: #282A35;
   padding: 10px;
-  /* z-index: 100000000; */
   border-radius: 15px;
+  margin-top: 100px;
+  width: 90%;
+  max-width: 1000px;
+  overflow: auto;
+  flex-direction: column;
+  align-items: center;
 }
 
 .popup  p{
+  padding-top: 10px;
   color: #fefefe;
 }
 
