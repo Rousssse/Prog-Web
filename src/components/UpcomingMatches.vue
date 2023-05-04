@@ -26,7 +26,7 @@ export default {
 },
   created: function(){
     this.getMatches();
-    console.log("juste apres c'est cassé");
+    
     
     const choices = JSON.parse(localStorage.getItem('choices'));
     console.log(choices);
@@ -34,6 +34,7 @@ export default {
     if (choices) {
       this.choice = choices;
     }
+    // console.log("juste apres c'est cassé");
     // this.removeOldChoices();
 
     
@@ -90,7 +91,7 @@ export default {
       const index = this.choice.findIndex(c => c.matchId === match.id);
 
       if (this.lastSelectedTeam) {
-        const newChoice = { matchId: match.id, selectedTeamName: this.lastSelectedTeam, dateAdded: new Date() };
+        const newChoice = { matchId: match.id, selectedTeamName: this.lastSelectedTeam, dateAdded: new Date(), TeamId : match.opponents };
         if (index === -1) {
           // if the team of the match has never been chosen, add a new data in the table 
           this.choice.push(newChoice);

@@ -26,6 +26,7 @@ export default {
     return {
       PastMatches: [], 
       totalScore: 0,
+      globalScore: parseInt(localStorage.getItem('globalScore') || 0),
     };
   },
 
@@ -36,7 +37,7 @@ export default {
             // console.log(data);
             let today = new Date();
             let yesterday = new Date();
-            yesterday.setDate(today.getDate() );
+            yesterday.setDate(today.getDate() -1 );
             let day = yesterday.getDate();
             if (day < 10) {
                 day = "0" + day;
@@ -68,36 +69,64 @@ export default {
         console.log("normal");
       // Parcourir les choix de l'utilisateur
       choices.forEach((choice) => {
-      console.log("jiuhiuiuiyhui");
+      console.log("parcours des choix");
       // Vérifier si l'id du choix est le même que celui d'un match passé
       if (choice.matchId === thePastGame.id) {
         thePastGame.userChoice = choice.selectedTeamName;
-        console.log("je suis passée par ici !!");
+        console.log("correspondance de matchs");
         // Vérifier si le choix de l'utilisateur est correct
-        if (choice.selectedTeamName === thePastGame.games[0].winner.name) {
-          // Ajouter 3 points à l'utilisateur
-          console.log("big brain");
-          thePastGame.userGain = 3;
-          this.totalScore += 3;
-        } else {
-          // Enlever 5 points à l'utilisateur
-          console.log("big loser");
-          thePastGame.userGain = -5;
-          this.totalScore -= 5;
-        }
+        if(choice.TeamId[0].opponent.name === choice.selectedTeamName){
+          if (choice.TeamId[0].opponent.id === thePastGame.games[0].winner.id) {
+            // Ajouter 3 points à l'utilisateur
+            console.log("big brain");
+            thePastGame.userGain = 3;
+            this.totalScore += 3;
+          } else {
+            // Enlever 5 points à l'utilisateur
+            console.log("big loser");
+            thePastGame.userGain = -5;
+            this.totalScore -= 5;
+          }
+      }
+      else {
+        if(choice.TeamId[0].opponent.id == thePastGame.games[0].winner.id){
+            // Ajouter 3 points à l'utilisateur
+            console.log("big brain");
+            thePastGame.userGain = 3;
+            this.totalScore += 3;
+          } else {
+            // Enlever 5 points à l'utilisateur
+            console.log("big loser");
+            thePastGame.userGain = -5;
+            this.totalScore -= 5;
+          }
+      }
+      
       }
     });
   });
-  console.log("this.totalScore :", this.totalScore);
+  console.log("le score total :", this.totalScore);
   },
+  updateGlobalScore() {
+      this.globalScore += this.totalScore;
+      console.log("global score = ", this.globalScore);
+      localStorage.setItem('globalScore', this.globalScore);
+    },
 
-  
+  },
+  watch: {
+    globalScore: function(newScore) {
+      console.log("New global score = ", newScore);
+    },
   },
 
   computed: {
     filteredPastMatches() {
       return this.PastMatches;
     }
+  },
+  updated(){
+    this.updateGlobalScore();
   },
 };
 </script>
