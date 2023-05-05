@@ -40,7 +40,7 @@ export default {
             // console.log(data);
             let today = new Date();
             let yesterday = new Date();
-            yesterday.setDate(today.getDate() -1 );
+            yesterday.setDate(today.getDate()  );
             let day = yesterday.getDate();
             if (day < 10) {
                 day = "0" + day;
@@ -79,6 +79,7 @@ export default {
         console.log("correspondance de matchs");
         // Vérifier si le choix de l'utilisateur est correct
         if(choice.TeamId[0].opponent.name === choice.selectedTeamName){
+          console.log("ok name correspond 1");
           if (choice.TeamId[0].opponent.id === thePastGame.games[0].winner.id) {
             // Ajouter 3 points à l'utilisateur
             console.log("big brain");
@@ -86,20 +87,22 @@ export default {
             this.totalScore += 3;
           } else {
             // Enlever 5 points à l'utilisateur
-            console.log("big loser");
+            console.log("big loser 1");
             thePastGame.userGain = -5;
             this.totalScore -= 5;
           }
       }
       else {
-        if(choice.TeamId[0].opponent.id == thePastGame.games[0].winner.id){
+        console.log("ok name correspond 2");
+        if(choice.TeamId[1].opponent.id == thePastGame.games[0].winner.id){
             // Ajouter 3 points à l'utilisateur
             console.log("big brain");
             thePastGame.userGain = 3;
             this.totalScore += 3;
-          } else {
+          } 
+          else {
             // Enlever 5 points à l'utilisateur
-            console.log("big loser");
+            console.log("big loser 2");
             thePastGame.userGain = -5;
             this.totalScore -= 5;
           }

@@ -58,7 +58,7 @@ export default {
             console.log(data);
             let today = new Date();
             let tomorrow = new Date();
-            tomorrow.setDate(today.getDate() + 1 );
+            tomorrow.setDate(today.getDate()  );
             let day = tomorrow.getDate();
             if(day <10){
                 day = "0"+day;
