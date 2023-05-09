@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>Upcoming games !</h1>
-    <InformationVue></InformationVue>
     <div class="match">
       <MatchesX
         v-for="(match, index) in filteredMatches.slice(0, maxItemsPerPage)"
@@ -15,8 +14,8 @@
     </div>
   </div>
 </template>
+
 <script>
-import InformationVue from './InformationData.vue';
 import MatchesX from './Matches.vue'
 import { getNextMatches } from '@/services/api/E-SportAPI.js'
 
@@ -24,11 +23,11 @@ export default {
   name: 'UpcomingMatches',
   components: {
     MatchesX,
-    InformationVue,
 },
   created: function(){
     this.getMatches();
     
+    // this.removeOldChoices();
     
     const choices = JSON.parse(localStorage.getItem('choices'));
     console.log(choices);
@@ -36,8 +35,8 @@ export default {
     if (choices) {
       this.choice = choices;
     }
-    // console.log("juste apres c'est cassé");
-    // this.removeOldChoices();
+
+    
 
     
  
@@ -58,7 +57,7 @@ export default {
             console.log(data);
             let today = new Date();
             let tomorrow = new Date();
-            tomorrow.setDate(today.getDate()  );
+            tomorrow.setDate(today.getDate() +1  );
             let day = tomorrow.getDate();
             if(day <10){
                 day = "0"+day;
@@ -109,16 +108,16 @@ export default {
         localStorage.setItem("choices", JSON.stringify(this.choice));
        }
     },
-    removeOldChoices(){
-      console.log("removeOldChoices is called ! ");
-      const now = new Date();
-      const cutoff = new Date(now - 3* 24 * 60 * 60 * 1000);
-      this.choice = this.choice.filter(c => {
-        const dateAdded = new Date(c.dateAdded);
-        return dateAdded >= cutoff;
-      });
-      localStorage.setItem("choices",JSON.stringify(this.choice));
-    }
+    // removeOldChoices(){
+    //   console.log("removeOldChoices is called ! ");
+    //   const now = new Date();
+    //   const cutoff = new Date(now - 3* 24 * 60 * 60 * 1000);
+    //   this.choice = this.choice.filter(c => {
+    //     const dateAdded = new Date(c.dateAdded);
+    //     return dateAdded <= cutoff;
+    //   });
+    //   localStorage.setItem("choices",JSON.stringify(this.choice));
+    // }
   },
   computed : {
     filteredMatches() {

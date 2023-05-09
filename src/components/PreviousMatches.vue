@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>Find here the results of yesterday's games</h1>
-    <InformationVue></InformationVue>
     <div class="past-match" v-for="(match, index) in filteredPastMatches" :key="index">
       <PastMatches 
       :thePastGame="match" />
@@ -13,17 +12,16 @@
 <script>
 import PastMatches from './pastMatches.vue'
 import { getPreviousMatches } from '@/services/api/E-SportAPI.js'
-import InformationVue from './InformationData.vue'
 
 export default {
   name: 'PreviousMatches',
   components: {
     PastMatches,
-    InformationVue,
   },
   created: function() {
     this.getPastMatches();
     this.compareChoicesWithPastMatches();
+    this.updateGlobalScore();
   },
   data() {
     return {
@@ -40,7 +38,7 @@ export default {
             // console.log(data);
             let today = new Date();
             let yesterday = new Date();
-            yesterday.setDate(today.getDate()  );
+            yesterday.setDate(today.getDate() - 4 );
             let day = yesterday.getDate();
             if (day < 10) {
                 day = "0" + day;
@@ -68,6 +66,9 @@ export default {
       // Parcourir les matchs passés
       const previousMatches = this.PastMatches;
       console.log("je suis le tableau des matchs",previousMatches);
+      // const scoreCalculated = localStorage.getItem('scoreCalculated');
+
+      // if(choices && previousMatches && !scoreCalculated){
       previousMatches.forEach((thePastGame) => {
         console.log("normal");
       // Parcourir les choix de l'utilisateur
@@ -112,6 +113,8 @@ export default {
     });
   });
   console.log("le score total :", this.totalScore);
+  // localStorage.setItem('scoreCalculated',true)
+// }
   },
   updateGlobalScore() {
       this.globalScore += this.totalScore;
@@ -130,9 +133,6 @@ export default {
     filteredPastMatches() {
       return this.PastMatches;
     }
-  },
-  updated(){
-    this.updateGlobalScore();
   },
 };
 </script>

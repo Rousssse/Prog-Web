@@ -2,7 +2,6 @@
   <div class="pastmatches">
     <div v-if="thePastGame && thePastGame.games && thePastGame.games[0] && thePastGame.games[0].winner">  
       <h2> {{thePastGame.name }} </h2>
-      <h2>{{ thePastGame.id }}</h2>
       <div class="match-info">
         <div class="winner-info">
           <img v-if="thePastGame.games[0].winner.id === thePastGame.opponents[0].opponent.id" v-bind:src="thePastGame.opponents[0].opponent.image_url"/>

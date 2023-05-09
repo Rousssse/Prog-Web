@@ -47,7 +47,7 @@ export default {
   display: flex;
   position: fixed;
   padding-top: 20px;
-  z-index: 2;
+  z-index: 9999;
   left: 40px;
   top: 50px;
   height: 30%;
