@@ -1,19 +1,19 @@
 <template>
   <div>
     <h3>Find the teams of the different leagues !</h3>
-    <ListeLigue @clique-sur-div="afficherclassement" />
+    <ListLeague @clique-sur-div="DisplayRanking" />
     <DisplayTeam :seriesid="leagueDisplay" ref="DisplayTeam" />
   </div>
 </template>
 
 <script>
-import ListeLigue from "./ListeLigue.vue";
+import ListLeague from "./ListeLigue.vue";
 import DisplayTeam from "./DisplayTeam.vue";
 export default {
-  name: "ClassementP",
+  name: "RankingP",
 
   components: {
-    ListeLigue,
+    ListLeague,
     DisplayTeam,
   },
   data() {
@@ -22,7 +22,7 @@ export default {
     };
   },
   methods: {
-    afficherclassement(name) {
+    DisplayRanking(name) {
       this.leagueDisplay = name;
       this.$refs.DisplayTeam.getClassement(this.leagueDisplay);
     },

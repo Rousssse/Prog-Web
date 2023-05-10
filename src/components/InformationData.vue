@@ -1,12 +1,28 @@
 <template>
   <div class="info-icon-container">
-    <span class="info-icon" @mouseenter="isHovered = true" @mouseleave="isHovered = false" @click="showPopup = true" :class="{ 'is-hovered': isHovered }">ℹ️</span>
+    <span
+      class="info-icon"
+      @mouseenter="isHovered = true"
+      @mouseleave="isHovered = false"
+      @click="showPopup = true"
+      :class="{ 'is-hovered': isHovered }"
+      >ℹ️</span
+    >
     <div class="popup" v-if="showPopup">
       <button class="close-button" @click="showPopup = false">X</button>
-      <p>This application makes it possible to make bets on League of legends esport matches and get the highest score, as well as to browse the leagues and the teams of league of legends.</p>
-      <p>The DAY BET page is to select your bets by clicking on the team name </p>
-      <p>The LEAGUE page is to browse the different leagues and teams </p>
-      <p>The HISTORICAL is to see the results of yesterday’s matches as well as the points won by the choice </p>
+      <p>
+        This application makes it possible to make bets on League of legends
+        esport matches and get the highest score, as well as to browse the
+        leagues and the teams of league of legends.
+      </p>
+      <p>
+        The DAY BET page is to select your bets by clicking on the team name
+      </p>
+      <p>The LEAGUE page is to browse the different leagues and teams</p>
+      <p>
+        The HISTORICAL is to see the results of yesterday’s matches as well as
+        the points won by the choice
+      </p>
     </div>
   </div>
 </template>
@@ -25,13 +41,13 @@ export default {
 <style scoped>
 .info-icon-container {
   position: fixed;
-  right : 20px;
+  right: 20px;
   bottom: 1%;
-  
 }
 
 .info-icon {
   display: block;
+
   font-size: 2rem;
   margin-right: 10px;
   opacity: 0.7;
@@ -51,7 +67,7 @@ export default {
   left: 40px;
   top: 50px;
   height: 30%;
-  background-color: #282A35;
+  background-color: #282a35;
   padding: 10px;
   border-radius: 15px;
   margin-top: 100px;
@@ -62,7 +78,7 @@ export default {
   align-items: center;
 }
 
-.popup  p{
+.popup p {
   padding-top: 10px;
   color: #fefefe;
 }
@@ -77,9 +93,8 @@ export default {
   color: #fefefe;
   border: none;
   transition: color 0.2s ease-in-out;
-  background-color:#282A35;
+  background-color: #282a35;
   border-radius: 15px;
-
 }
 
 .close-button:hover,
