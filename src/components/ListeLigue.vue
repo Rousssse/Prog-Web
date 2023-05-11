@@ -1,37 +1,43 @@
 <template>
-  <div class="listeligue">
-    <div class="ligue">
-      <div class="name" @click="toggleList">
-        <img src="https://img.icons8.com/nolan/12x/riot-games.png" class="image-riot">
-        <div class="title"> CHOOSE A LEAGUE </div>
-        <div class="arrow" :class="{'open': showList}">
-          <img src="../assets/fleche.png" class="icon">
+  <div class="league-list">
+    <div class="league">
+      <div class="league-name" @click="toggleList">
+        <img
+          src="https://img.icons8.com/nolan/12x/riot-games.png"
+          class="league-image-riot"
+        />
+        <div class="league-title">CHOOSE A LEAGUE</div>
+        <div class="league-arrow" :class="{ open: showList }">
+          <img src="../assets/fleche.png" class="league-icon" />
         </div>
       </div>
-      <input class="search" type="text" v-model="searchTerm" placeholder="Search" />
-      <ul :class="{'show': showList}">
-          <LigueCard
-            size="large"
-            v-for="(ligue,index) in filteredLigues"
-            @click="$emit('clique-sur-div',ligue.series[ligue.series.length-1].id)"
-            :key="ligue.id"
-            :ligue="ligue.name"
-            :image="ligue.image_url"
-            :index="index"
-            :currentIndex="currentIndex"
-        @update-current-index="currentIndex = $event">
-          </LigueCard>
+      <input type="text" v-model="searchTerm" placeholder="Search" />
+      <ul :class="{ show: showList }">
+        <LigueCard
+          size="large"
+          v-for="(ligue, index) in filteredLigues"
+          @click="
+            $emit('clique-sur-div', ligue.series[ligue.series.length - 1].id)
+          "
+          :key="ligue.id"
+          :ligue="ligue.name"
+          :image="ligue.image_url"
+          :index="index"
+          :currentIndex="currentIndex"
+          @update-current-index="currentIndex = $event"
+        >
+        </LigueCard>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-import LigueCard from './LigueCard.vue';
-import { getLeague } from '../services/api/E-SportAPI.js';
+import LigueCard from "./LigueCard.vue";
+import { getLeague } from "../services/api/E-SportAPI.js";
 
 export default {
-  name: 'ListeLigue',
+  name: "ListeLigue",
   components: {
     LigueCard,
   },
@@ -39,12 +45,10 @@ export default {
     return {
       showList: false,
       ligues: [],
-      searchTerm: '',
+      searchTerm: "",
 
-      popularLeagues: ['LEC','LFL','LPLOL'],
-      currentIndex : -1,
-      
-      
+      popularLeagues: ["LEC", "LFL", "LPLOL"],
+      currentIndex: -1,
     };
   },
   methods: {
@@ -56,8 +60,6 @@ export default {
         ligue.name.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
     },
- 
-
   },
   computed: {
     filteredLigues() {
@@ -65,8 +67,9 @@ export default {
         return this.filterLigues();
       } else {
         // Filter by popular league
-        return this.ligues.filter((ligue) => ligue.series[ligue.series.length-1].begin_at.startsWith("2023") );
-        
+        return this.ligues.filter((ligue) =>
+          ligue.series[ligue.series.length - 1].begin_at.startsWith("2023")
+        );
       }
     },
   },
@@ -83,87 +86,77 @@ export default {
 };
 </script>
 
-  
 <style>
-
-@media only screen and (min-width: 1024px){
-  .listeligue {
+@media only screen and (min-width: 1024px) {
+  .league-list {
     position: relative;
     list-style: none;
     color: #ffffff;
     display: flex;
     cursor: pointer;
-    background-color: #282A35;
+    background-color: #282a35;
     width: 36vw;
   }
 
-  .ligue {
+  .league {
     display: flex;
     align-items: center;
-  }
-  
-  .image {
-    height: 60px;
-    width: 60px;
-    margin-right: 20px;
-    margin-left: 40px;
-    margin-top: 25px;
   }
 
-  .image-riot {
-    height: 60px;
-    width: 60px;
-  }
-  
-  .name {
+  .league-name {
     display: flex;
     align-items: center;
   }
-  
-  .title {
+
+  .league-image-riot {
+    height: 60px;
+    width: 60px;
+  }
+
+  .league-title {
     margin-left: 20px;
-    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact, "Arial Narrow Bold", sans-serif;
     font-size: 1.3vw;
   }
-  
-  .arrow {
+
+  .league-arrow {
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
   }
-  
-  .arrow.open {
+
+  .league-arrow.open {
     transform: translateY(-50%) rotate(180deg);
   }
-  
-  .icon {
+
+  .league-icon {
     width: 2vw;
     height: 2vw;
   }
 
   input {
-  font-size: 1vw;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 0 .4vw rgba(194, 194, 194, 0.5), 0 0 0 .15vw transparent;
-  border-radius: 0.4vw;
-  border: none;
-  outline: none;
-  padding: 0.4vw;
-  max-width: 10vw;
-  margin-left: 3vw;
-  transition: .4s;
-}
+    font-size: 1vw;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 0.4vw rgba(194, 194, 194, 0.5), 0 0 0 0.15vw transparent;
+    border-radius: 0.4vw;
+    border: none;
+    outline: none;
+    padding: 0.4vw;
+    max-width: 10vw;
+    margin-left: 3vw;
+    transition: 0.4s;
+  }
 
-input:hover {
-  box-shadow: 0 0 0 .15vw rgba(135, 207, 235, 0.186);
-}
+  input:hover {
+    box-shadow: 0 0 0 0.15vw rgba(135, 207, 235, 0.186);
+  }
 
-input:focus {
-  box-shadow: 0 0 0 .15vw rgb(158, 72, 184);
-}
-  
+  input:focus {
+    box-shadow: 0 0 0 0.15vw rgb(158, 72, 184);
+  }
+
   ul {
     list-style: none;
     margin: 0;
@@ -174,98 +167,89 @@ input:focus {
     left: 0;
     width: 100%;
   }
-  
+
   ul.show {
     display: block;
   }
-  
+
   ul li {
     padding: 5px 10px;
     color: #fff;
-    font-family:Impact, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact, "Arial Narrow Bold", sans-serif;
     cursor: pointer;
   }
 }
 
-  @media only screen and (max-width: 1023px){
-    .listeligue {
+@media only screen and (max-width: 1023px) {
+  .league-list {
     position: relative;
     list-style: none;
     color: #ffffff;
     display: flex;
     cursor: pointer;
-    background-color: #282A35;
+    background-color: #282a35;
     width: 40vw;
   }
 
-  .ligue {
+  .league {
     display: flex;
     align-items: center;
   }
-  
-  .image {
-    height: 60px;
-    width: 60px;
-    margin-right: 20px;
-    margin-left: 40px;
-    margin-top: 25px;
+
+  .league-name {
+    display: flex;
+    align-items: center;
   }
 
-  .image-riot {
+  .league-image-riot {
     height: 6vw;
     width: 6vw;
   }
-  
-  .name {
-    display: flex;
-    align-items: center;
-  }
-  
-  .title {
+
+  .league-title {
     margin-left: 10px;
-    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact, "Arial Narrow Bold", sans-serif;
     font-size: 1.8vw;
   }
-  
-  .arrow {
+
+  .league-arrow {
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
   }
-  
-  .arrow.open {
+
+  .league-arrow.open {
     transform: translateY(-50%) rotate(180deg);
   }
-  
-  .icon {
+
+  .league-icon {
     width: 2.5vw;
     height: 2.5vw;
   }
 
-  
   input {
-  font-size: 1.5vw;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 0 .4vw rgba(194, 194, 194, 0.5), 0 0 0 .15vw transparent;
-  border-radius: 0.4vw;
-  border: none;
-  outline: none;
-  padding: 0.4vw;
-  max-width: 10vw;
-  margin-left: 3vw;
-  transition: .4s;
-}
+    font-size: 1.5vw;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 0.4vw rgba(194, 194, 194, 0.5), 0 0 0 0.15vw transparent;
+    border-radius: 0.4vw;
+    border: none;
+    outline: none;
+    padding: 0.4vw;
+    max-width: 10vw;
+    margin-left: 3vw;
+    transition: 0.4s;
+  }
 
-input:hover {
-  box-shadow: 0 0 0 .15vw rgba(135, 207, 235, 0.186);
-}
+  input:hover {
+    box-shadow: 0 0 0 0.15vw rgba(135, 207, 235, 0.186);
+  }
 
-input:focus {
-  box-shadow: 0 0 0 .15vw rgb(158, 72, 184);
-}
-  
+  input:focus {
+    box-shadow: 0 0 0 0.15vw rgb(158, 72, 184);
+  }
+
   ul {
     list-style: none;
     margin: 0;
@@ -276,17 +260,16 @@ input:focus {
     left: 0;
     width: 100%;
   }
-  
+
   ul.show {
     display: block;
   }
-  
+
   ul li {
     padding: 5px 10px;
     color: #fff;
-    font-family:Impact, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact, "Arial Narrow Bold", sans-serif;
     cursor: pointer;
   }
-  }
-  </style>
-  
+}
+</style>

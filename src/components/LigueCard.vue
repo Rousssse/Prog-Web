@@ -1,14 +1,14 @@
 <template>
   <div
-    class="ligue-card"
+    class="league-card"
     v-if="image"
     :class="{ selected: index === currentIndex }"
     @click="handleClick"
   >
     <div>
-      <img class="image" :src="image" :alt="ligue" />
+      <img class="league-image" :src="image" :alt="ligue" />
     </div>
-    <div class="ligue-elt">
+    <div class="league-element">
       <h1>{{ ligue }}</h1>
     </div>
   </div>
@@ -45,23 +45,28 @@ export default {
 
 <style scoped>
 @media only screen and (min-width: 1024px) {
-  .ligue-card {
+  .league-card {
     position: relative;
     list-style: none;
     color: #ffffff;
     display: flex;
     cursor: pointer;
+    transition: transform 0.2s ease-in-out;
     background: #6b83a4;
     box-shadow: inset 5px 5px 5px #9bbeee, inset -5px -5px 5px #9bbeee;
   }
-  .image {
+  .league-card:hover {
+    transform: scale(1.05);
+  }
+  .league-image {
     height: 5vw;
     width: 5vw;
     margin-left: 2vw;
     margin-right: 4vw;
+    margin-top: 1vw;
   }
 
-  .ligue-elt h1 {
+  .league-element h1 {
     font-size: 1.5vw;
     position: relative;
     color: #282a35;
@@ -75,7 +80,7 @@ export default {
 }
 
 @media only screen and (max-width: 767px) {
-  .ligue-card {
+  .league-card {
     list-style: none;
     color: #ffffff;
     display: flex;
@@ -84,16 +89,18 @@ export default {
     transition: transform 0.2s ease-in-out;
     box-shadow: inset 2px 2px 2px #9bbeee, inset -5px -5px 5px #9bbeee;
   }
-  .ligue-card:hover {
-    transform: scale(1.1);
+  .league-card:hover {
+    transform: scale(1.05);
   }
-  .image {
-    height: 7vw;
-    width: 7vw;
-    margin-left: 3vw;
+  .league-image {
+    height: 6vw;
+    width: 6vw;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    margin-top: 1vw;
   }
 
-  .ligue-elt h1 {
+  .league-element h1 {
     font-size: 2.5vw;
     color: #282a35;
     margin-top: -4vw;
@@ -105,7 +112,7 @@ export default {
 }
 
 @media only screen and (max-width: 1023px) and (min-width: 768px) {
-  .ligue-card {
+  .league-card {
     list-style: none;
     color: #ffffff;
     display: flex;
@@ -114,16 +121,18 @@ export default {
     transition: transform 0.2s ease-in-out;
     box-shadow: inset 2px 2px 2px #9bbeee, inset -5px -5px 5px #9bbeee;
   }
-  .ligue-card:hover {
+  .league-card:hover {
     transform: scale(1.05);
   }
-  .image {
-    height: 7vw;
-    width: 7vw;
-    margin-left: 3vw;
+  .league-image {
+    height: 6vw;
+    width: 6vw;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    margin-top: 1vw;
   }
 
-  .ligue-elt h1 {
+  .league-element h1 {
     font-size: 2.5vw;
     color: #282a35;
     margin-top: -2vw;
