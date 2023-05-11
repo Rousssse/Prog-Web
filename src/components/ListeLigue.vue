@@ -13,7 +13,7 @@
       </div>
       <input type="text" v-model="searchTerm" placeholder="Search" />
       <ul :class="{ show: showList }">
-        <LigueCard
+        <LeagueCard
           size="large"
           v-for="(ligue, index) in filteredLigues"
           @click="
@@ -26,20 +26,20 @@
           :currentIndex="currentIndex"
           @update-current-index="currentIndex = $event"
         >
-        </LigueCard>
+        </LeagueCard>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-import LigueCard from "./LigueCard.vue";
+import LeagueCard from "./LeagueCard.vue";
 import { getLeague } from "../services/api/E-SportAPI.js";
 
 export default {
   name: "ListeLigue",
   components: {
-    LigueCard,
+    LeagueCard,
   },
   data() {
     return {

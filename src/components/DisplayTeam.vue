@@ -1,6 +1,6 @@
 <template>
-  <div class="classement">
-    <div class="title_team">TEAMS</div>
+  <div class="team">
+    <div class="team-title">TEAMS</div>
     <div>
       <div>
         <TeamCard
@@ -106,24 +106,24 @@ export default {
 
 <style>
 @media only screen and (max-width: 1023px) {
-  .classement {
+  .team {
     width: 58vw;
     float: right;
     background-color: #282a35;
     color: #fff;
   }
 
-  .classement h2 {
+  .team h2 {
     font-size: 2.5vw;
     margin-bottom: 0.5em;
     color: #fff;
   }
 
-  .classement li {
+  .team li {
     margin-bottom: 0.5em;
   }
 
-  .title_team {
+  .team-title {
     margin-left: 20px;
     font-family: Impact, "Arial Narrow Bold", sans-serif;
     font-size: 3vw;
@@ -131,7 +131,7 @@ export default {
 }
 
 @media only screen and (min-width: 1024px) {
-  .classement {
+  .team {
     width: 63vw;
     float: right;
     margin-right: 0%;
@@ -139,17 +139,17 @@ export default {
     color: #fff;
   }
 
-  .classement h2 {
+  .team h2 {
     font-size: 2vw;
     margin-bottom: 0.5em;
     color: #fff;
   }
 
-  .classement li {
+  .team li {
     margin-bottom: 0.5em;
   }
 
-  .title_team {
+  .team-title {
     margin-left: 20px;
     font-family: Impact, "Arial Narrow Bold", sans-serif;
     font-size: 3vw;
