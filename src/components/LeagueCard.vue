@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: "LigueCard",
+  name: "LeagueCard",
   props: {
     ligue: { type: String, required: true },
     image: {
