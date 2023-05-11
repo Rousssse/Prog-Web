@@ -52,8 +52,7 @@ export default {
     display: flex;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
-    background: #6b83a4;
-    box-shadow: inset 5px 5px 5px #9bbeee, inset -5px -5px 5px #9bbeee;
+    background: linear-gradient(to right, rgb(95, 93, 191), rgb(125, 189, 226));
   }
   .league-card:hover {
     transform: scale(1.05);
@@ -74,8 +73,8 @@ export default {
   }
 
   .selected {
-    background: #607694;
-    box-shadow: inset 10px 10px 17px #3b485a, inset -10px -10px 17px #3b485a;
+    background: linear-gradient(to right, #5359c6, #837ccf);
+    box-shadow: inset 5px 5px 5px #344291, inset -3px -3px 3px #7685d9;
   }
 }
 
@@ -85,9 +84,8 @@ export default {
     color: #ffffff;
     display: flex;
     cursor: pointer;
-    background: #6b83a4;
+    background: linear-gradient(to right, rgb(95, 93, 191), rgb(125, 189, 226));
     transition: transform 0.2s ease-in-out;
-    box-shadow: inset 2px 2px 2px #9bbeee, inset -5px -5px 5px #9bbeee;
   }
   .league-card:hover {
     transform: scale(1.05);
@@ -106,8 +104,8 @@ export default {
     margin-top: -4vw;
   }
   .selected {
-    background: #607694;
-    box-shadow: inset 10px 10px 17px #3b485a, inset -10px -10px 17px #3b485a;
+    background: linear-gradient(to right, #5359c6, #837ccf);
+    box-shadow: inset 5px 5px 5px #344291, inset -3px -3px 3px #7685d9;
   }
 }
 
@@ -117,9 +115,8 @@ export default {
     color: #ffffff;
     display: flex;
     cursor: pointer;
-    background: #6b83a4;
+    background: linear-gradient(to right, rgb(95, 93, 191), rgb(125, 189, 226));
     transition: transform 0.2s ease-in-out;
-    box-shadow: inset 2px 2px 2px #9bbeee, inset -5px -5px 5px #9bbeee;
   }
   .league-card:hover {
     transform: scale(1.05);
@@ -138,8 +135,8 @@ export default {
     margin-top: -2vw;
   }
   .selected {
-    background: #6b83a4;
-    box-shadow: inset 10px 10px 17px #3b485a, inset -10px -10px 17px #3b485a;
+    background: linear-gradient(to right, #5359c6, #837ccf);
+    box-shadow: inset 5px 5px 5px #344291, inset -3px -3px 3px #7685d9;
   }
 }
 </style>

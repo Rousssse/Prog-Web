@@ -7,16 +7,16 @@
 </template>
 
 <script>
-import NavBar from './components/NavBar.vue'
-import InformationData from './components/InformationData.vue';
+import NavBar from "./components/NavBar.vue";
+import InformationData from "./components/InformationData.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     NavBar,
-    InformationData
+    InformationData,
   },
-}
+};
 </script>
 
 <style>
@@ -30,7 +30,6 @@ export default {
 }
 
 .app {
-  background-color: hsla(0, 0%, 100%, 0.974);
   height: 100%;
 }
 
@@ -39,6 +38,4 @@ body {
   margin: 0;
   padding: 0;
 }
-
-
 </style>

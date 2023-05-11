@@ -1,19 +1,19 @@
 <template>
   <div>
     <h3>Find the teams of the different leagues !</h3>
-    <ListLeague @clique-sur-div="DisplayRanking" />
+    <LeagueList @clique-sur-div="DisplayRanking" />
     <DisplayTeam :seriesid="leagueDisplay" ref="DisplayTeam" />
   </div>
 </template>
 
 <script>
-import ListLeague from "./ListeLigue.vue";
+import LeagueList from "./LeagueList.vue";
 import DisplayTeam from "./DisplayTeam.vue";
 export default {
   name: "RankingP",
 
   components: {
-    ListLeague,
+    LeagueList,
     DisplayTeam,
   },
   data() {
@@ -31,7 +31,16 @@ export default {
 </script>
 
 <style>
-h3 {
-  margin-top: 100px;
+@media only screen and (min-width: 1024px) {
+  h3 {
+    margin-top: 9vw;
+    font-size: 2vw;
+  }
+}
+@media only screen and (max-width: 1023px) {
+  h3 {
+    margin-top: 13vw;
+    font-size: 2.5vw;
+  }
 }
 </style>
