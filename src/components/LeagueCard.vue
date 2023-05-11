@@ -6,10 +6,10 @@
     @click="handleClick"
   >
     <div>
-      <img class="league-image" :src="image" :alt="ligue" />
+      <img class="league-image" :src="image" :alt="league" />
     </div>
     <div class="league-element">
-      <h1>{{ ligue }}</h1>
+      <h1>{{ league }}</h1>
     </div>
   </div>
 </template>
@@ -18,7 +18,7 @@
 export default {
   name: "LeagueCard",
   props: {
-    ligue: { type: String, required: true },
+    league: { type: String, required: true },
     image: {
       type: String,
       default: "https://gamingnewz.fr/wp-content/uploads/2020/04/Logo-lfl.png",

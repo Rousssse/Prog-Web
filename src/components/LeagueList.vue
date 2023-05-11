@@ -1,6 +1,6 @@
 <template>
-  <div class="league-list">
-    <div class="league">
+  <div class="league-container">
+    <div class="league-list">
       <div class="league-name" @click="toggleList">
         <img
           src="https://img.icons8.com/nolan/12x/riot-games.png"
@@ -15,13 +15,13 @@
       <ul :class="{ show: showList }">
         <LeagueCard
           size="large"
-          v-for="(ligue, index) in filteredLigues"
+          v-for="(league, index) in filteredLeagues"
           @click="
-            $emit('clique-sur-div', ligue.series[ligue.series.length - 1].id)
+            $emit('clique-sur-div', league.series[league.series.length - 1].id)
           "
-          :key="ligue.id"
-          :ligue="ligue.name"
-          :image="ligue.image_url"
+          :key="league.id"
+          :league="league.name"
+          :image="league.image_url"
           :index="index"
           :currentIndex="currentIndex"
           @update-current-index="currentIndex = $event"
@@ -37,17 +37,15 @@ import LeagueCard from "./LeagueCard.vue";
 import { getLeague } from "../services/api/E-SportAPI.js";
 
 export default {
-  name: "ListeLigue",
+  name: "LeagueList",
   components: {
     LeagueCard,
   },
   data() {
     return {
       showList: false,
-      ligues: [],
+      leagues: [],
       searchTerm: "",
-
-      popularLeagues: ["LEC", "LFL", "LPLOL"],
       currentIndex: -1,
     };
   },
@@ -55,29 +53,29 @@ export default {
     toggleList() {
       this.showList = !this.showList;
     },
-    filterLigues() {
-      return this.ligues.filter((ligue) =>
-        ligue.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    filterLeagues() {
+      return this.leagues.filter((league) =>
+        league.name.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
     },
   },
   computed: {
-    filteredLigues() {
+    filteredLeagues() {
       if (this.searchTerm) {
-        return this.filterLigues();
+        return this.filterLeagues();
       } else {
         // Filter by popular league
-        return this.ligues.filter((ligue) =>
-          ligue.series[ligue.series.length - 1].begin_at.startsWith("2023")
+        return this.leagues.filter((league) =>
+          league.series[league.series.length - 1].begin_at.startsWith("2023")
         );
       }
     },
   },
   created() {
     getLeague()
-      .then((data) => {
-        this.ligues = data.sort((a, b) => a.name.localeCompare(b.name));
-        console.log(this.ligues); // ORDER A -> Z
+      .then((leaguesData) => {
+        this.leagues = leaguesData.sort((a, b) => a.name.localeCompare(b.name));
+        console.log(this.leagues); // ORDER A -> Z
       })
       .catch((error) => {
         console.error(error);
@@ -88,7 +86,7 @@ export default {
 
 <style>
 @media only screen and (min-width: 1024px) {
-  .league-list {
+  .league-container {
     position: relative;
     list-style: none;
     color: #ffffff;
@@ -98,7 +96,7 @@ export default {
     width: 36vw;
   }
 
-  .league {
+  .league-list {
     display: flex;
     align-items: center;
   }
@@ -181,7 +179,7 @@ export default {
 }
 
 @media only screen and (max-width: 1023px) {
-  .league-list {
+  .league-container {
     position: relative;
     list-style: none;
     color: #ffffff;
@@ -191,7 +189,7 @@ export default {
     width: 40vw;
   }
 
-  .league {
+  .league-list {
     display: flex;
     align-items: center;
   }
