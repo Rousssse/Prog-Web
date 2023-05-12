@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import PastMatches from "./pastMatches.vue";
+import PastMatches from "./PastMatches.vue";
 import { getPreviousMatches } from "@/services/api/E-SportAPI.js";
 
 export default {
@@ -152,8 +152,17 @@ export default {
 </script>
 
 <style>
-h1 {
-  color: rgb(0, 0, 0);
-  padding-top: 50px;
+@media only screen and (min-width: 1024px) {
+  h1 {
+    color: rgb(0, 0, 0);
+    padding-top: 100px;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  h1 {
+    color: rgb(0, 0, 0);
+    padding-top: 50px;
+  }
 }
 </style>

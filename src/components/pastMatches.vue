@@ -8,9 +8,9 @@
         thePastGame.games[0].winner
       "
     >
-      <h2 class="title-pastmatches">{{ thePastGame.name }}</h2>
-      <div class="match-info">
-        <div class="winner-info">
+      <h2 class="pastmatches-title">{{ thePastGame.name }}</h2>
+      <div class="pastmatches-info">
+        <div class="pastmatches-winner">
           <img
             v-if="
               thePastGame.games[0].winner.id ===
@@ -32,13 +32,13 @@
           </p>
           <p v-else>{{ thePastGame.opponents[1].opponent.name }}</p>
         </div>
-        <div class="user-choice">
+        <div class="pastmatches-user-data">
           <p>Votre choix :</p>
-          <p class="user-text">{{ thePastGame.userChoice }}</p>
+          <p class="pastmatches-user-text">{{ thePastGame.userChoice }}</p>
         </div>
-        <div class="user-gain">
+        <div class="pastmatches-user-data">
           <p>Gain :</p>
-          <p class="user-text">{{ thePastGame.userGain }}</p>
+          <p class="pastmatches-user-text">{{ thePastGame.userGain }}</p>
         </div>
       </div>
     </div>
@@ -63,7 +63,7 @@ export default {
     align-items: center;
     border-radius: 10px;
     overflow: hidden;
-    width: 90%;
+    width: 80%;
     margin: 10px auto;
     background: linear-gradient(
       to right,
@@ -75,52 +75,50 @@ export default {
 
   .pastmatches p {
     margin: 10px 0;
-    font-size: 2vw;
+    font-size: 1.5vw;
   }
 
-  .match-info {
+  .pastmatches-title {
+    font-size: 1.7vw;
+  }
+
+  .pastmatches-info {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 3vw;
+    padding: 1.5vw;
     box-sizing: border-box;
   }
 
-  .match-info img {
-    width: 10vw;
-    height: 10vw;
+  .pastmatches-info img {
+    width: 6vw;
+    height: 6vw;
     margin-right: 20px;
   }
 
-  .match-info p {
+  .pastmatches-info p {
     margin: 0;
   }
 
-  .winner-info,
-  .user-choice,
-  .user-gain {
+  .pastmatches-winner,
+  .pastmatches-user-data {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
   }
 
-  .winner-info p {
+  .pastmatches-winner p {
     font-weight: bold;
   }
 
-  .user-choice p,
-  .user-gain p {
+  .pastmatches-user-data p {
     margin-left: 2vw;
   }
-  .user-text {
+  .pastmatches-user-text {
     font-weight: bold;
-  }
-
-  .title-pastmatches {
-    font-size: 2.5vw;
   }
 }
 @media only screen and (max-width: 1023px) {
@@ -141,16 +139,16 @@ export default {
     box-shadow: 0px 1px 0px 2px rgb(252, 252, 252);
   }
 
-  .title-pastmatches {
-    font-size: 2.5vw;
-  }
-
   .pastmatches p {
     margin: 10px 0;
     font-size: 1.9vw;
   }
 
-  .match-info {
+  .pastmatches-title {
+    font-size: 2.5vw;
+  }
+
+  .pastmatches-info {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -160,35 +158,33 @@ export default {
     box-sizing: border-box;
   }
 
-  .match-info img {
-    width: 10vw;
-    height: 10vw;
+  .pastmatches-info img {
+    width: 6vw;
+    height: 6vw;
     margin-right: 10px;
   }
 
-  .match-info p {
+  .pastmatches-info p {
     margin: 0;
   }
 
-  .winner-info,
-  .user-choice,
-  .user-gain {
+  .pastmatches-winner,
+  .pastmatches-user-data {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
   }
 
-  .winner-info p {
+  .pastmatches-winner p {
     font-weight: bold;
   }
 
-  .user-choice p,
-  .user-gain p {
+  .pastmatches-user-data p {
     margin-left: 1.5vw;
   }
 
-  .user-text {
+  .pastmatches-user-text {
     font-weight: bold;
   }
 }

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import LeagueList from "./LeagueList.vue";
+import LeagueList from "./DisplayLeague.vue";
 import DisplayTeam from "./DisplayTeam.vue";
 export default {
   name: "RankingP",

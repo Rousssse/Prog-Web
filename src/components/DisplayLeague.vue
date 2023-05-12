@@ -1,18 +1,18 @@
 <template>
   <div class="league-container">
     <div class="league-list">
-      <div class="league-name" @click="toggleList">
+      <div class="league-name" @click="toggleLeagueList">
         <img
           src="https://img.icons8.com/nolan/12x/riot-games.png"
           class="league-image-riot"
         />
         <div class="league-title">CHOOSE A LEAGUE</div>
-        <div class="league-arrow" :class="{ open: showList }">
+        <div class="league-arrow" :class="{ open: showLeagueList }">
           <img src="../assets/fleche.png" class="league-icon" />
         </div>
       </div>
       <input type="text" v-model="searchTerm" placeholder="Search" />
-      <ul :class="{ show: showList }">
+      <ul :class="{ show: showLeagueList }">
         <LeagueCard
           size="large"
           v-for="(league, index) in filteredLeagues"
@@ -43,17 +43,17 @@ export default {
   },
   data() {
     return {
-      showList: false,
+      showLeagueList: false,
       leagues: [],
       searchTerm: "",
       currentIndex: -1,
     };
   },
   methods: {
-    toggleList() {
-      this.showList = !this.showList;
+    toggleLeagueList() {
+      this.showLeagueList = !this.showLeagueList;
     },
-    filterLeagues() {
+    getFilteredLeagues() {
       return this.leagues.filter((league) =>
         league.name.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
@@ -62,7 +62,7 @@ export default {
   computed: {
     filteredLeagues() {
       if (this.searchTerm) {
-        return this.filterLeagues();
+        return this.getFilteredLeagues();
       } else {
         // Filter by popular league
         return this.leagues.filter((league) =>
@@ -75,7 +75,7 @@ export default {
     getLeague()
       .then((leaguesData) => {
         this.leagues = leaguesData.sort((a, b) => a.name.localeCompare(b.name));
-        console.log(this.leagues); // ORDER A -> Z
+        console.log(this.leagues);
       })
       .catch((error) => {
         console.error(error);
