@@ -13,7 +13,7 @@
         </li>
         <li><p class="score">SCORE :</p></li>
         <li>
-          <p>{{ totalScore }}</p>
+          <p class="score">{{ totalScore }}</p>
         </li>
         <li>
           <Vue3Lottie
@@ -83,6 +83,9 @@ export default {
     background-color: #282a35;
     white-space: nowrap;
     overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
   }
 
   nav a {
@@ -106,8 +109,10 @@ export default {
     text-decoration: none;
   }
 
-  li {
+  nav li {
     font-size: 2.2vw;
+    padding: 5px 10px;
+    font-family: Impact, "Arial Narrow Bold", sans-serif;
   }
 }
 

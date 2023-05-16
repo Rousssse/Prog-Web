@@ -132,7 +132,7 @@ export default {
 
 @media only screen and (min-width: 1024px) {
   .team {
-    width: 63vw;
+    width: 62vw;
     float: right;
     margin-right: 0%;
     background-color: #282a35;
@@ -140,7 +140,7 @@ export default {
   }
 
   .team h2 {
-    font-size: 2vw;
+    font-size: 1.8vw;
     margin-bottom: 0.5em;
     color: #fff;
   }
@@ -152,7 +152,7 @@ export default {
   .team-title {
     margin-left: 20px;
     font-family: Impact, "Arial Narrow Bold", sans-serif;
-    font-size: 3vw;
+    font-size: 2.5vw;
   }
 }
 </style>

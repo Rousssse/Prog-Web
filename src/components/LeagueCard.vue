@@ -55,18 +55,18 @@ export default {
     background: linear-gradient(to right, rgb(95, 93, 191), rgb(125, 189, 226));
   }
   .league-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
   }
   .league-image {
-    height: 5vw;
-    width: 5vw;
-    margin-left: 2vw;
+    height: 3vw;
+    width: 3vw;
+    margin-left: 5vw;
     margin-right: 4vw;
-    margin-top: 1vw;
+    margin-top: 2vw;
   }
 
   .league-element h1 {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     position: relative;
     color: #282a35;
     margin-top: -1vw;
