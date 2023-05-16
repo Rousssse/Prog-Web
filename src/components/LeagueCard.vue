@@ -5,11 +5,9 @@
     :class="{ selected: index === currentIndex }"
     @click="handleClick"
   >
-    <div>
-      <img class="league-image" :src="image" :alt="league" />
-    </div>
-    <div class="league-element">
-      <h1>{{ league }}</h1>
+    <img :src="image" :alt="league" />
+    <div class="league-body">
+      <h2>{{ league }}</h2>
     </div>
   </div>
 </template>
@@ -46,32 +44,34 @@ export default {
 <style scoped>
 @media only screen and (min-width: 1024px) {
   .league-card {
-    position: relative;
-    list-style: none;
-    color: #ffffff;
     display: flex;
+    color: #282a35;
+    text-align: center;
     cursor: pointer;
+    padding: 5px;
     transition: transform 0.2s ease-in-out;
     background: linear-gradient(to right, rgb(95, 93, 191), rgb(125, 189, 226));
   }
   .league-card:hover {
-    transform: scale(1.02);
+    transform: scale(1.04);
   }
-  .league-image {
+  .league-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .league-card img {
     height: 3vw;
     width: 3vw;
-    margin-left: 5vw;
-    margin-right: 4vw;
-    margin-top: 2vw;
+    margin-right: 6vw;
+    margin-left: 4vw;
   }
 
-  .league-element h1 {
-    font-size: 1.2vw;
-    position: relative;
-    color: #282a35;
-    margin-top: -1vw;
+  .league-body h2 {
+    font-size: 1vw;
+    margin-bottom: 10px;
+    align-items: center;
   }
-
   .selected {
     background: linear-gradient(to right, #5359c6, #837ccf);
     box-shadow: inset 5px 5px 5px #344291, inset -3px -3px 3px #7685d9;
@@ -80,29 +80,34 @@ export default {
 
 @media only screen and (max-width: 767px) {
   .league-card {
-    list-style: none;
-    color: #ffffff;
     display: flex;
+    color: #282a35;
+    text-align: center;
     cursor: pointer;
-    background: linear-gradient(to right, rgb(95, 93, 191), rgb(125, 189, 226));
+    padding: 5px;
     transition: transform 0.2s ease-in-out;
+    background: linear-gradient(to right, rgb(95, 93, 191), rgb(125, 189, 226));
   }
   .league-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.04);
   }
-  .league-image {
-    height: 6vw;
-    width: 6vw;
+  .league-card img {
+    height: 4vw;
+    width: 4vw;
+    margin-right: 6vw;
     margin-left: 4vw;
-    margin-right: 4vw;
-    margin-top: 1vw;
+  }
+  .league-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .league-body h2 {
+    font-size: 1.7vw;
+    margin-bottom: 10px;
+    align-items: center;
   }
 
-  .league-element h1 {
-    font-size: 2.5vw;
-    color: #282a35;
-    margin-top: -4vw;
-  }
   .selected {
     background: linear-gradient(to right, #5359c6, #837ccf);
     box-shadow: inset 5px 5px 5px #344291, inset -3px -3px 3px #7685d9;
@@ -111,29 +116,34 @@ export default {
 
 @media only screen and (max-width: 1023px) and (min-width: 768px) {
   .league-card {
-    list-style: none;
-    color: #ffffff;
     display: flex;
+    color: #282a35;
+    text-align: center;
     cursor: pointer;
-    background: linear-gradient(to right, rgb(95, 93, 191), rgb(125, 189, 226));
+    padding: 5px;
     transition: transform 0.2s ease-in-out;
+    background: linear-gradient(to right, rgb(95, 93, 191), rgb(125, 189, 226));
   }
   .league-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.04);
   }
-  .league-image {
-    height: 6vw;
-    width: 6vw;
+  .league-card img {
+    height: 4vw;
+    width: 4vw;
+    margin-right: 6vw;
     margin-left: 4vw;
-    margin-right: 4vw;
-    margin-top: 1vw;
+  }
+  .league-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .league-body h2 {
+    font-size: 1.7vw;
+    margin-bottom: 10px;
+    align-items: center;
   }
 
-  .league-element h1 {
-    font-size: 2.5vw;
-    color: #282a35;
-    margin-top: -2vw;
-  }
   .selected {
     background: linear-gradient(to right, #5359c6, #837ccf);
     box-shadow: inset 5px 5px 5px #344291, inset -3px -3px 3px #7685d9;

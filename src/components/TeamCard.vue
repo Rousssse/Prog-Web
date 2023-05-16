@@ -1,13 +1,13 @@
 <template>
-  <div class="teamcard">
+  <div class="team-card">
     <img v-if="image" :src="image" />
     <img
       v-else
       src="https://logo-marque.com/wp-content/uploads/2020/11/League-of-Legends-Embleme.png"
       :alt="team"
     />
-    <div class="teambody">
-      <h2 class="name" @click="onClick">{{ name }}</h2>
+    <div class="team-body">
+      <h2 class="team-name" @click="onClick">{{ name }}</h2>
     </div>
   </div>
 </template>
@@ -42,7 +42,7 @@ export default {
 
 <style>
 @media only screen and (min-width: 1024px) {
-  .teamcard {
+  .team-card {
     display: flex;
     width: 100%;
     margin: 10px auto;
@@ -52,36 +52,29 @@ export default {
     text-align: center;
   }
 
-  .teamcard img {
+  .team-card img {
     width: 6vw;
     height: 6vw;
-    margin-right: 12vw; /* espace entre l'image et le texte */
+    margin-right: 12vw;
     margin-left: 4vw;
   }
 
-  .teambody {
+  .team-body {
     display: flex;
-    flex-direction: column; /* mettre le texte en colonne */
-    justify-content: center; /* centrage vertical */
+    flex-direction: column;
+    justify-content: center;
   }
 
-  .teambody h2 {
+  .team-body h2 {
     font-size: 0px;
     color: whitesmoke;
     margin-bottom: 10px;
     align-items: center;
   }
-
-  .teambody p {
-    font-size: 24px; /* réduire la taille de la police */
-    color: whitesmoke;
-    align-items: center;
-    margin: 0; /* enlever les marges par défaut */
-  }
 }
 
 @media only screen and (max-width: 1023px) {
-  .teamcard {
+  .team-card {
     display: flex;
     width: 58vw;
     margin: 10px auto;
@@ -91,27 +84,27 @@ export default {
     text-align: center;
   }
 
-  .teamcard img {
+  .team-card img {
     width: 10vw;
     height: 10vw;
-    margin-right: 10vw; /* espace entre l'image et le texte */
+    margin-right: 10vw;
     margin-left: 5vw;
   }
 
-  .teambody {
+  /* .team-body {
     display: flex;
-    flex-direction: column; /* mettre le texte en colonne */
-    justify-content: center; /* centrage vertical */
-  }
+    flex-direction: column;
+    justify-content: center;
+  } */
 
-  .teambody h2 {
+  .team-body h2 {
     font-size: 36px; /* réduire la taille de la police */
     color: #fff;
     margin-bottom: 10px;
     align-items: center; /* espace entre le nom et le score */
   }
 
-  .teambody p {
+  .team-body p {
     font-size: 24px; /* réduire la taille de la police */
     color: whitesmoke;
     align-items: center;

@@ -12,7 +12,7 @@
         </div>
       </div>
       <input type="text" v-model="searchTerm" placeholder="Search" />
-      <ul :class="{ show: showLeagueList }">
+      <ul class="league-display" :class="{ show: showLeagueList }">
         <LeagueCard
           size="large"
           v-for="(league, index) in filteredLeagues"
@@ -155,7 +155,7 @@ export default {
     box-shadow: 0 0 0 0.15vw rgb(158, 72, 184);
   }
 
-  ul {
+  .league-display {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -168,13 +168,6 @@ export default {
 
   ul.show {
     display: block;
-  }
-
-  ul li {
-    padding: 5px 10px;
-    color: #fff;
-    font-family: Impact, "Arial Narrow Bold", sans-serif;
-    cursor: pointer;
   }
 }
 
