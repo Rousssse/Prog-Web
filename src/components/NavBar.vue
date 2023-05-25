@@ -50,7 +50,6 @@ export default {
   },
   mounted() {
     this.totalScore = localStorage.getItem("globalScore") || 0;
-    //console.log("totalScore in navbar:", this.totalScore);
   },
 };
 </script>

@@ -51,7 +51,6 @@ export default {
   },
   methods: {
     closeModal() {
-      console.log("click on the cross");
       this.showModal = false;
       this.$emit("close", null);
       this.showModal = true;

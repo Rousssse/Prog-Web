@@ -59,14 +59,12 @@ export default {
   },
   methods: {
     onLeftClick() {
-      console.log("Click on the left side");
       this.selected = true;
       this.selectedTeam = this.theGame.opponents[0].opponent;
       this.$emit("SelectedTeam", this.selectedTeam.name);
       this.$emit("LeftClick");
     },
     onRightClick() {
-      console.log("Click on the right side");
       this.selected = true;
       this.selectedTeam = this.theGame.opponents[1].opponent;
       this.$emit("SelectedTeam", this.selectedTeam.name);

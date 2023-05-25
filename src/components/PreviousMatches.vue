@@ -35,7 +35,6 @@ export default {
     getPastMatches() {
       getPreviousMatches()
         .then((data) => {
-          // console.log(data);
           let today = new Date();
           let yesterday = new Date();
           yesterday.setDate(today.getDate() - 1);
@@ -62,54 +61,39 @@ export default {
         });
     },
     compareChoicesWithPastMatches() {
-      // Récupérer le tableau choices à partir de localStorage
+      // Recovering the choices array from localStorage
       const choices = JSON.parse(localStorage.getItem("choices"));
       const currentDate = new Date().toLocaleDateString();
       console.log("le fameux tableau :", choices);
       console.log("compareChoicesWithPastMatches is called ! ");
 
-      // Parcourir les matchs passés
+      // Browse past matches
       const previousMatches = this.PastMatches;
-      console.log("je suis le tableau des matchs", previousMatches);
 
-      // if(choices && previousMatches && !scoreCalculated){
       previousMatches.forEach((thePastGame) => {
-        console.log("normal");
-        // Parcourir les choix de l'utilisateur
+        // Browse user choices
         choices.forEach((choice) => {
-          console.log("parcours des choix");
-          // Vérifier si l'id du choix est le même que celui d'un match passé
+          // Check if the id of the choice is the same as that of a past match
           if (choice.matchId === thePastGame.id) {
             thePastGame.userChoice = choice.selectedTeamName;
-            console.log("correspondance de matchs");
-            // Vérifier si le choix de l'utilisateur est correct
+            // Check that user selection is correct
             if (choice.TeamId[0].opponent.name === choice.selectedTeamName) {
-              console.log("ok name correspond 1");
               if (
                 choice.TeamId[0].opponent.id === thePastGame.games[0].winner.id
               ) {
-                // Ajouter 3 points à l'utilisateur
-                console.log("big brain");
                 thePastGame.userGain = 3;
                 this.totalScore += 3;
               } else {
-                // Enlever 5 points à l'utilisateur
-                console.log("big loser 1");
                 thePastGame.userGain = -5;
                 this.totalScore -= 5;
               }
             } else {
-              console.log("ok name correspond 2");
               if (
                 choice.TeamId[1].opponent.id == thePastGame.games[0].winner.id
               ) {
-                // Ajouter 3 points à l'utilisateur
-                console.log("big brain");
                 thePastGame.userGain = 3;
                 this.totalScore += 3;
               } else {
-                // Enlever 5 points à l'utilisateur
-                console.log("big loser 2");
                 thePastGame.userGain = -5;
                 this.totalScore -= 5;
               }
@@ -117,21 +101,18 @@ export default {
           }
         });
       });
-      console.log("le score total :", this.totalScore);
-      // Vérifier si le score global a déjà été mis à jour pour la journée en cours
+      // Check if the global score has already been updated for the current day
       if (localStorage.getItem(currentDate) !== "updated") {
         this.updateGlobalScore().then(() => {
           localStorage.setItem(currentDate, "updated");
-          console.log("je m'update");
         });
       } else {
-        console.log("déjà fait pour aujoud'hui");
+        console.log("already done");
       }
     },
     updateGlobalScore() {
       return new Promise((resolve) => {
         this.globalScore += this.totalScore;
-        console.log("global score = ", this.globalScore);
         localStorage.setItem("globalScore", this.globalScore);
         resolve();
       });

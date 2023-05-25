@@ -27,10 +27,7 @@ export default {
   created: function () {
     this.getMatches();
 
-    // this.removeOldChoices();
-
     const choices = JSON.parse(localStorage.getItem("choices"));
-    console.log(choices);
 
     if (choices) {
       this.choice = choices;
@@ -39,7 +36,7 @@ export default {
   data() {
     return {
       NextMatches: [],
-      maxItemsPerPage: 60, // max matches per page
+      maxItemsPerPage: 60,
       choice: [],
       selectedTeam: [],
       lastClicked: null,
@@ -49,7 +46,6 @@ export default {
     getMatches() {
       getNextMatches()
         .then((data) => {
-          console.log(data);
           let today = new Date();
           let tomorrow = new Date();
           tomorrow.setDate(today.getDate() + 1);
@@ -68,8 +64,6 @@ export default {
                 year + "-" + month + "-" + day
               ) && games.opponents.length === 2
           );
-          console.log(year + "-" + month + "-" + day);
-          console.log(this.NextMatches);
         })
         .catch((error) => {
           console.error(error);
@@ -77,21 +71,12 @@ export default {
     },
 
     onSelectedTeamChanged(match, team) {
-      console.log(
-        "onSelectedTeamChanged is called !",
-        "team",
-        team,
-        "id of the match",
-        match.id
-      );
       this.lastSelectedTeam = team;
       if (match.opponents) {
         this.retrieveChoice(match);
       }
     },
     retrieveChoice(match) {
-      console.log("retrieveChoice is called !");
-
       // verify if a choice on the match is already done
       const index = this.choice.findIndex((c) => c.matchId === match.id);
 
@@ -111,12 +96,11 @@ export default {
         }
 
         this.lastChoiceIndex = this.choice.length - 1;
-        console.log(this.choice);
-
-        // save the choices in the local storage
         localStorage.setItem("choices", JSON.stringify(this.choice));
       }
     },
+
+    /* Non functional function to remove old choices 
     // removeOldChoices(){
     //   console.log("removeOldChoices is called ! ");
     //   const now = new Date();
@@ -127,6 +111,7 @@ export default {
     //   });
     //   localStorage.setItem("choices",JSON.stringify(this.choice));
     // }
+    */
   },
   computed: {
     filteredMatches() {

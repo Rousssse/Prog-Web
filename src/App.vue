@@ -1,20 +1,17 @@
 <template>
   <div class="app">
     <NavBar />
-    <InformationData></InformationData>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
-import InformationData from "./components/InformationData.vue";
 
 export default {
   name: "App",
   components: {
     NavBar,
-    InformationData,
   },
 };
 </script>

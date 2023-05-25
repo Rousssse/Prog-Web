@@ -7,7 +7,7 @@
       :alt="team"
     />
     <div class="team-body">
-      <h2 class="team-name" @click="onClick">{{ name }}</h2>
+      <h2 @click="onClick">{{ name }}</h2>
     </div>
   </div>
 </template>
@@ -33,7 +33,6 @@ export default {
   },
   methods: {
     onClick() {
-      console.log("Click on the name");
       this.$emit("selected-team", this.teamId);
     },
   },
@@ -66,10 +65,9 @@ export default {
   }
 
   .team-body h2 {
-    font-size: 0px;
-    color: whitesmoke;
-    margin-bottom: 10px;
+    color: #fff;
     align-items: center;
+    font-size: 2.3vw;
   }
 }
 
@@ -85,30 +83,15 @@ export default {
   }
 
   .team-card img {
-    width: 10vw;
-    height: 10vw;
+    width: 7vw;
+    height: 7vw;
     margin-right: 10vw;
     margin-left: 5vw;
   }
 
-  /* .team-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  } */
-
   .team-body h2 {
-    font-size: 36px; /* réduire la taille de la police */
     color: #fff;
-    margin-bottom: 10px;
-    align-items: center; /* espace entre le nom et le score */
-  }
-
-  .team-body p {
-    font-size: 24px; /* réduire la taille de la police */
-    color: whitesmoke;
-    align-items: center;
-    margin: 0; /* enlever les marges par défaut */
+    font-size: 2vw;
   }
 }
 </style>

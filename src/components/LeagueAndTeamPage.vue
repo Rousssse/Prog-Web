@@ -2,7 +2,7 @@
   <div>
     <h3>Find the teams of the different leagues !</h3>
     <LeagueList @clique-sur-div="DisplayRanking" />
-    <DisplayTeam :seriesid="leagueDisplay" ref="DisplayTeam" />
+    <DisplayTeam :seriesId="leagueDisplay" ref="DisplayTeam" />
   </div>
 </template>
 
@@ -16,15 +16,10 @@ export default {
     LeagueList,
     DisplayTeam,
   },
-  data() {
-    return {
-      leagueDisplay: 5497,
-    };
-  },
   methods: {
     DisplayRanking(name) {
       this.leagueDisplay = name;
-      this.$refs.DisplayTeam.getClassement(this.leagueDisplay);
+      this.$refs.DisplayTeam.getRanking(this.leagueDisplay);
     },
   },
 };

@@ -18,7 +18,7 @@
     <div v-for="(player, index) in filteredPlayers" :key="index">
       <PlayersCard
         :teamId="player.id"
-        :teamname="player.name"
+        :teamName="player.name"
         :players="player.players"
         :selectedTeamId="selectedTeamId"
         @close="selectedTeamId = $event"
@@ -52,7 +52,7 @@ export default {
     };
   },
   props: {
-    seriesid: {
+    seriesId: {
       required: true,
     },
     teamId: {
@@ -61,13 +61,13 @@ export default {
   },
 
   created() {
-    this.getClassement();
+    this.getRanking();
     this.displayPlayersInTeam();
   },
   methods: {
-    getClassement(seriesid) {
-      if (seriesid) {
-        getTeamInLeague(seriesid)
+    getRanking(seriesId) {
+      if (seriesId) {
+        getTeamInLeague(seriesId)
           .then((data) => {
             this.teams = data.sort((a, b) => a.name.localeCompare(b.name));
           })
@@ -77,7 +77,6 @@ export default {
       }
     },
     displayPlayersInTeam(teamId) {
-      console.log("displayplayersinteam is called !", "teamiD", teamId);
       this.selectedTeamId = teamId;
       const selectedTeam = this.teams.find((team) => team.id === teamId);
       if (selectedTeam) {
@@ -87,8 +86,6 @@ export default {
             this.filteredPlayers = this.result.filter(
               (team) => team.id === this.selectedTeamId
             );
-            // this.filteredPlayers = this.filteredPlayers.players;
-            console.log(this.filteredPlayers);
           })
           .catch((error) => {
             console.error(error);
@@ -113,12 +110,6 @@ export default {
     color: #fff;
   }
 
-  .team h2 {
-    font-size: 2.5vw;
-    margin-bottom: 0.5em;
-    color: #fff;
-  }
-
   .team li {
     margin-bottom: 0.5em;
   }
@@ -136,12 +127,6 @@ export default {
     float: right;
     margin-right: 0%;
     background-color: #282a35;
-    color: #fff;
-  }
-
-  .team h2 {
-    font-size: 1.8vw;
-    margin-bottom: 0.5em;
     color: #fff;
   }
 

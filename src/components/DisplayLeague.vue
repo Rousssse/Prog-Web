@@ -64,7 +64,7 @@ export default {
       if (this.searchTerm) {
         return this.getFilteredLeagues();
       } else {
-        // Filter by popular league
+        // Filter by active league
         return this.leagues.filter((league) =>
           league.series[league.series.length - 1].begin_at.startsWith("2023")
         );
@@ -134,6 +134,17 @@ export default {
     height: 2vw;
   }
 
+  .league-display {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+  }
+
   input {
     font-size: 1vw;
     background-color: rgb(255, 255, 255);
@@ -153,17 +164,6 @@ export default {
 
   input:focus {
     box-shadow: 0 0 0 0.15vw rgb(158, 72, 184);
-  }
-
-  .league-display {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
   }
 
   ul.show {
