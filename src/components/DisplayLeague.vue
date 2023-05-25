@@ -75,7 +75,6 @@ export default {
     getLeague()
       .then((leaguesData) => {
         this.leagues = leaguesData.sort((a, b) => a.name.localeCompare(b.name));
-        console.log(this.leagues);
       })
       .catch((error) => {
         console.error(error);

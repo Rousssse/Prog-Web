@@ -52,8 +52,6 @@ export default {
               games.begin_at &&
               games.begin_at.startsWith(year + "-" + month + "-" + day)
           );
-          console.log(year + "-" + month + "-" + day);
-          console.log(this.PastMatches);
           this.compareChoicesWithPastMatches();
         })
         .catch((error) => {
@@ -64,8 +62,6 @@ export default {
       // Recovering the choices array from localStorage
       const choices = JSON.parse(localStorage.getItem("choices"));
       const currentDate = new Date().toLocaleDateString();
-      console.log("le fameux tableau :", choices);
-      console.log("compareChoicesWithPastMatches is called ! ");
 
       // Browse past matches
       const previousMatches = this.PastMatches;

@@ -18,7 +18,7 @@
     <div v-for="(player, index) in filteredPlayers" :key="index">
       <PlayersCard
         :teamId="player.id"
-        :teamName="player.name"
+        :teamname="player.name"
         :players="player.players"
         :selectedTeamId="selectedTeamId"
         @close="selectedTeamId = $event"
