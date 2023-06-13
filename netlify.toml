@@ -1,8 +1,6 @@
-...
 
 [[headers]]
   for = "/projet-web-elisa/dist/*"
   [headers.values]
     Access-Control-Allow-Origin = "*"
 
-...
